@@ -1,0 +1,253 @@
+.orders-page {
+
+  min-height: 80vh;
+  padding: 60px 8%;
+  background: #fffafc;
+
+}
+
+
+.orders-title {
+
+  text-align: center;
+  color: #d63384;
+  font-size: 35px;
+  margin-bottom: 40px;
+
+}
+
+
+.orders-container {
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+}
+
+
+.order-card {
+
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+
+  box-shadow:
+  0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.order-top {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #eee;
+
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+
+}
+
+
+
+.order-top h3 {
+
+  margin: 0;
+  color: #333;
+
+}
+
+
+
+.order-top p {
+
+  font-size: 13px;
+  color: #777;
+
+  word-break: break-all;
+
+}
+
+
+
+.status-box span {
+
+  background: #d63384;
+  color: white;
+
+  padding: 8px 18px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+
+
+.order-details {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+.order-details p {
+
+  color: #666;
+
+}
+
+
+
+.order-details strong {
+
+  color: #333;
+
+  margin-left: 5px;
+
+}
+
+
+
+.products-heading {
+
+  color:#333;
+
+  margin-bottom:15px;
+
+}
+
+
+
+.order-products {
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:20px;
+
+}
+
+
+
+.order-product {
+
+  display:flex;
+
+  gap:15px;
+
+  align-items:center;
+
+  background:#fff7fb;
+
+  padding:15px;
+
+  border-radius:12px;
+
+}
+
+
+
+.order-product img {
+
+  width:90px;
+
+  height:90px;
+
+  object-fit:cover;
+
+  border-radius:10px;
+
+}
+
+
+
+.order-product h4 {
+
+  margin-bottom:8px;
+
+  color:#333;
+
+}
+
+
+
+.order-product p {
+
+  margin:4px 0;
+
+  color:#666;
+
+}
+
+
+
+.no-orders {
+
+  text-align:center;
+
+  padding:60px 20px;
+
+}
+
+
+
+.no-orders h2 {
+
+  color:#333;
+
+}
+
+
+
+.no-orders p {
+
+  color:#777;
+
+}
+
+
+
+@media(max-width:700px){
+
+
+  .order-top {
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+  }
+
+
+  .order-details {
+
+    flex-direction:column;
+
+  }
+
+
+  .order-product {
+
+    width:100%;
+
+  }
+
+
+}

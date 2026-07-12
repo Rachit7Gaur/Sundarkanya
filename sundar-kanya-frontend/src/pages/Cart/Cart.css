@@ -1,0 +1,53 @@
+.cart-page{
+
+  padding:60px 0;
+
+  background:#fffafc;
+
+  min-height:70vh;
+
+}
+
+
+.cart-title{
+
+  text-align:center;
+
+  color:#d63384;
+
+  margin-bottom:40px;
+
+  font-weight:700;
+
+}
+
+
+.cart-layout{
+
+  display:grid;
+
+  grid-template-columns:2fr 1fr;
+
+  gap:30px;
+
+}
+
+
+
+.cart-items{
+
+  width:100%;
+
+}
+
+
+
+@media(max-width:900px){
+
+  .cart-layout{
+
+    grid-template-columns:1fr;
+
+  }
+
+}

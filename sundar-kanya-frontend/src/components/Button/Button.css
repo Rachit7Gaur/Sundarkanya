@@ -1,0 +1,52 @@
+.sk-btn{
+
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary{
+
+    background:#d63384;
+    color:white;
+
+}
+
+.primary:hover{
+
+    background:#bf2d73;
+
+}
+
+.secondary{
+
+    background:white;
+    color:#d63384;
+
+    border:2px solid #d63384;
+
+}
+
+.secondary:hover{
+
+    background:#d63384;
+    color:white;
+
+}
+
+.sk-btn:disabled{
+
+    opacity:.6;
+    cursor:not-allowed;
+
+}

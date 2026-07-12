@@ -1,0 +1,213 @@
+.categories{
+    padding:80px 8%;
+    background:#fff;
+}
+
+/* ---------- SECTION TITLE ---------- */
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#d63384;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.section-title p{
+    color:#666;
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* ---------- GRID ---------- */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+/* ---------- CARD ---------- */
+
+.category-card{
+    position:relative;
+    display:block;
+    width:100%;
+    height:360px;
+    overflow:hidden;
+    border-radius:20px;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.category-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.category-card:hover img{
+    transform:scale(1.08);
+}
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    padding:30px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.72),
+        rgba(0,0,0,.15),
+        transparent
+    );
+}
+
+.category-overlay h3{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.category-overlay button{
+    border:none;
+    background:#d63384;
+    color:#fff;
+    padding:12px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.category-overlay button:hover{
+    background:#b61d69;
+    transform:translateY(-2px);
+}
+
+/* ---------- LAPTOP ---------- */
+
+@media (max-width:992px){
+
+.categories{
+    padding:70px 30px;
+}
+
+.category-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.category-card{
+    height:300px;
+}
+
+.category-overlay h3{
+    font-size:22px;
+}
+
+.category-overlay button{
+    padding:10px 22px;
+    font-size:14px;
+}
+
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width:768px){
+
+.categories{
+    padding:55px 18px;
+}
+
+.section-title{
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title p{
+    font-size:15px;
+}
+
+.category-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.category-card{
+    height:180px;
+    border-radius:14px;
+}
+
+.category-overlay{
+    padding:14px;
+}
+
+.category-overlay h3{
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.category-overlay button{
+    padding:8px 14px;
+    font-size:12px;
+}
+
+}
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width:480px){
+
+.categories{
+    padding:40px 14px;
+}
+
+.section-title h2{
+    font-size:26px;
+}
+
+.section-title p{
+    font-size:14px;
+}
+
+.category-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.category-card{
+    height:150px;
+    border-radius:12px;
+}
+
+.category-overlay{
+    padding:10px;
+}
+
+.category-overlay h3{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.category-overlay button{
+    padding:6px 10px;
+    font-size:11px;
+    border-radius:20px;
+}
+
+}

@@ -1,0 +1,169 @@
+.cart-item{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.cart-item img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:14px;
+    flex-shrink:0;
+}
+
+.cart-item-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart-item-info h3{
+    font-size:34px;
+    color:#222;
+    margin-bottom:10px;
+}
+
+.cart-price{
+    color:#d63384;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* Quantity */
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.quantity-box button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:8px;
+    background:#d63384;
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.quantity-box button:hover:not(:disabled){
+    background:#b61d69;
+}
+
+.quantity-box button:disabled{
+    background:#ccc;
+    cursor:not-allowed;
+}
+
+.quantity-box span{
+    width:45px;
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* Remove */
+
+.remove-btn{
+    background:#ff4d4f !important;
+    color:#fff !important;
+    border:none !important;
+    width:140px;
+    height:45px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+.remove-btn:hover{
+    background:#d9363e;
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+.cart-item img{
+    width:150px;
+    height:150px;
+}
+
+.cart-item-info h3{
+    font-size:28px;
+}
+
+.cart-price{
+    font-size:24px;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.cart-item{
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.cart-item img{
+    width:220px;
+    height:220px;
+}
+
+.cart-item-info{
+    align-items:center;
+}
+
+.quantity-box{
+    justify-content:center;
+}
+
+.remove-btn{
+    width:100%;
+    max-width:220px;
+}
+
+}
+
+/* Small Mobile */
+
+@media(max-width:480px){
+
+.cart-item img{
+    width:180px;
+    height:180px;
+}
+
+.cart-item-info h3{
+    font-size:24px;
+}
+
+.cart-price{
+    font-size:22px;
+}
+
+.quantity-box button{
+    width:38px;
+    height:38px;
+    font-size:20px;
+}
+
+.quantity-box span{
+    font-size:20px;
+}
+
+}

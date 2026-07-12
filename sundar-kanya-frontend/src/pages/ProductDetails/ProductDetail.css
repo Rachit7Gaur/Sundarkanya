@@ -1,0 +1,127 @@
+.product-details-page{
+    padding:60px 0;
+}
+
+.category{
+    display:inline-block;
+    background:#ffe6f0;
+    color:#d63384;
+    padding:6px 15px;
+    border-radius:20px;
+    font-size:14px;
+    margin-bottom:20px;
+    text-transform:capitalize;
+}
+
+.price{
+    color:#d63384;
+    margin:20px 0;
+    font-weight:700;
+}
+
+.description{
+    color:#666;
+    line-height:1.8;
+    margin:20px 0;
+}
+
+/* ================= Reviews ================= */
+
+.reviews-section {
+  margin-top: 60px;
+  padding: 30px;
+  border-top: 1px solid #eee;
+}
+
+.reviews-section h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #222;
+}
+
+.rating-summary {
+  margin: 10px 0 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f5a623;
+}
+
+.rating-summary span {
+  color: #666;
+  margin-left: 8px;
+  font-size: 15px;
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.review-card h4 {
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.review-card p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.review-card small {
+  color: #888;
+}
+
+.review-form {
+  margin-top: 40px;
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.review-form h3 {
+  margin-bottom: 20px;
+}
+
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.review-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.review-form button {
+  background: #d63384;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.review-form button:hover {
+  background: #b02a6f;
+}
+
+.login-review-msg {
+  margin-top: 25px;
+  padding: 15px;
+  background: #fff3cd;
+  color: #856404;
+  border-radius: 8px;
+  border: 1px solid #ffe69c;
+}

@@ -1,0 +1,157 @@
+.why-choose{
+    padding:80px 8%;
+    background:#fff;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.feature-card{
+    background:#fff;
+    border:1px solid #f7dce7;
+    border-radius:20px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.35s;
+    height:100%;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(214,51,132,.15);
+}
+
+.feature-icon{
+    width:80px;
+    height:80px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:#fdebf4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#d63384;
+    font-size:34px;
+}
+
+.feature-card h3{
+    color:#333;
+    font-size:22px;
+    margin-bottom:12px;
+    min-height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.feature-card p{
+    color:#666;
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* ---------- Large Tablet ---------- */
+
+@media(max-width:1200px){
+
+.feature-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* ---------- Tablet ---------- */
+
+@media(max-width:992px){
+
+.why-choose{
+    padding:60px 30px;
+}
+
+.feature-grid{
+    gap:22px;
+}
+
+.feature-card{
+    padding:30px 20px;
+}
+
+.feature-icon{
+    width:72px;
+    height:72px;
+    font-size:30px;
+}
+
+.feature-card h3{
+    font-size:20px;
+}
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.why-choose{
+    padding:45px 18px;
+}
+
+.feature-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.feature-card{
+    padding:28px 20px;
+}
+
+.feature-icon{
+    width:65px;
+    height:65px;
+    font-size:28px;
+}
+
+.feature-card h3{
+    font-size:19px;
+    min-height:auto;
+}
+
+.feature-card p{
+    font-size:14px;
+}
+
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media(max-width:480px){
+
+.why-choose{
+    padding:35px 14px;
+}
+
+.feature-card{
+    padding:24px 18px;
+    border-radius:16px;
+}
+
+.feature-icon{
+    width:58px;
+    height:58px;
+    font-size:24px;
+}
+
+.feature-card h3{
+    font-size:18px;
+}
+
+.feature-card p{
+    font-size:13px;
+    line-height:1.6;
+}
+
+}

@@ -1,0 +1,98 @@
+.settings-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 35px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.settings-page h1 {
+  text-align: center;
+  color: #d63384;
+  margin-bottom: 35px;
+  font-size: 2rem;
+}
+
+.settings-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.settings-page h2 {
+  color: #444;
+  font-size: 1.2rem;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f7d7e6;
+}
+
+.settings-page input,
+.settings-page textarea,
+.settings-page select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s;
+  outline: none;
+  background: #fafafa;
+}
+
+.settings-page input:focus,
+.settings-page textarea:focus,
+.settings-page select:focus {
+  border-color: #d63384;
+  box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.15);
+  background: #fff;
+}
+
+.settings-page button {
+  margin-top: 20px;
+  padding: 14px;
+  background: #d63384;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.settings-page button:hover {
+  background: #b92d70;
+  transform: translateY(-2px);
+}
+
+.settings-page button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .settings-page {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .settings-page h1 {
+    font-size: 1.6rem;
+  }
+
+  .settings-page h2 {
+    font-size: 1.1rem;
+  }
+
+  .settings-page input,
+  .settings-page textarea,
+  .settings-page select {
+    font-size: 14px;
+  }
+
+  .settings-page button {
+    width: 100%;
+  }
+}
