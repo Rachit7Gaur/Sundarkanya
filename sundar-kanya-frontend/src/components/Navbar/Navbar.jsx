@@ -5,7 +5,7 @@ import { CartContext } from "../../context/CartContext.jsx";
 import { WishlistContext } from "../../context/WishlistContext.jsx";
 import "./Navbar.css";
 
-import NavLinks from "./NavLinks";
+import NavLinks from "./Navlinks.jsx";
 import SearchBar from "./SearchBar";
 import AccountMenu from "./AccountMenu.jsx";
 import MobileMenu from "./MobileMenu";
