@@ -16,6 +16,14 @@ const transporter = nodemailer.createTransport({
   connectionTimeout: 30000,
 });
 
+transporter.verify((error, success) => {
+  if (error) {
+    console.log("SMTP Verify Error:", error);
+  } else {
+    console.log("SMTP Server is ready");
+  }
+});
+
 const sendEmail = async (options) => {
   const info = await transporter.sendMail({
     from: `"SundarKanya Support" <${process.env.SMTP_USER}>`,
