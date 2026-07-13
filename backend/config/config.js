@@ -38,6 +38,7 @@ const config = {
   EMAIL_USER: process.env.EMAIL_USER,
   EMAIL_PASS: process.env.EMAIL_PASS,
   RAZORPAY_WEBHOOK_SECRET: process.env.RAZORPAY_WEBHOOK_SECRET,
+  FRONTEND_URL: process.env.FRONTEND_URL,
 };
 
 export default config;

@@ -311,7 +311,7 @@ await user.save();
 
 
 const resetUrl =
-`http://localhost:5173/reset-password/${token}`;
+`${config.FRONTEND_URL}/reset-password/${token}`;
 
 
 console.log("Reset email sending to:", user.email);

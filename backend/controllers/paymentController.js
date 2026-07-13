@@ -183,21 +183,27 @@ console.log("Clearing cart...");
     await cart.save();
 console.log("Sending success response...");
 
-    // Get customer email
+   // Get customer email
 const user = await User.findById(req.user.id);
 
-// Send confirmation email
-await sendEmail({
-  email: user.email,
-  subject: "🎉 Your Sundarkanya Order is Confirmed!",
-  message: orderConfirmationEmail(order),
+// Send response FIRST
+res.json({
+  success: true,
+  message: "Payment successful",
+  order,
 });
-    
-    res.json({
-      success: true,
-      message: "Payment successful",
-      order,
-    });
+
+// Send email in background
+try {
+  await sendEmail({
+    email: user.email,
+    subject: "🎉 Your Sundarkanya Order is Confirmed!",
+    message: orderConfirmationEmail(order),
+  });
+  console.log("Order confirmation email sent");
+} catch (err) {
+  console.error("Order email failed:", err);
+}
 
   } catch (error) {
     res.status(500).json({
