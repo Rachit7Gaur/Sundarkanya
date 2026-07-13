@@ -44,22 +44,27 @@ order_id: razorpayOrder.id,
 
 
 handler: async function (response) {
+  try {
+    const result = await verifyPayment({
+      razorpay_order_id: response.razorpay_order_id,
+      razorpay_payment_id: response.razorpay_payment_id,
+      razorpay_signature: response.razorpay_signature,
+      shippingAddress: paymentData.shippingAddress,
+      paymentMethod: paymentData.paymentMethod,
+    });
 
-  const result = await verifyPayment({
-    razorpay_order_id: response.razorpay_order_id,
-    razorpay_payment_id: response.razorpay_payment_id,
-    razorpay_signature: response.razorpay_signature,
-    shippingAddress: paymentData.shippingAddress,
-    paymentMethod: paymentData.paymentMethod,
-  });
+    console.log("Verify Result:", result);
+    alert(JSON.stringify(result));
 
-  console.log("Verify Result:", result);
-
-  if (result.success) {
-    toast.success("Payment Successful");
-    navigate(`/order-confirmation/${result.order._id}`);
-  } else {
-    toast.error(result.message);
+    if (result.success) {
+      toast.success("Payment Successful");
+      navigate(`/order-confirmation/${result.order._id}`);
+    } else {
+      toast.error(result.message);
+    }
+  } catch (err) {
+    console.error(err);
+    alert(err.response?.data?.message || err.message);
   }
 },
 
