@@ -16,7 +16,7 @@ import contactRoutes from "./routes/contactRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
 import webhookRoutes from "./routes/webhookRoutes.js";
-import settingsRoutes from "./routes/settingsRoutes.js";
+import settingsRoutes from "./routes/SettingsRoutes.js";
 
 
 dotenv.config();
