@@ -8,7 +8,7 @@ import {
   cancelOrder,
 } from "../../services/orderService";
 
-import generateInvoice from "../../utils/invoiceGenerator";
+import generateInvoice from "../../utils/InvoiceGenerator";
 
 import "./MyOrders.css";
 
