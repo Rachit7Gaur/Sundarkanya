@@ -1,0 +1,63 @@
+.analytics-page{
+
+    padding:10px;
+
+}
+
+.analytics-page h1{
+
+    margin-bottom:30px;
+
+    color:#111827;
+
+}
+
+.chart-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.chart-card h2{
+
+    margin-bottom:25px;
+
+    color:#111827;
+
+}
+
+.analytics-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.analytics-header select{
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    background:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}

@@ -37,6 +37,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    gender: {
+      type: String,
+      enum: ["Male", "Female", "Other"],
+      default: "Other",
+    },
+    dateOfBirth: Date,
+    profileImage: String,
 
     // Default Shipping Address
     address: {

@@ -1,16 +1,24 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import footerLinks from "../../data/footerLinks";
 
 import {
   FaFacebookF,
   FaInstagram,
   FaPinterestP,
-  FaYoutube
+  FaYoutube,
 } from "react-icons/fa";
 
-function Footer() {
+import {
+  FiMapPin,
+  FiPhone,
+  FiMail,
+  FiTruck,
+  FiShield,
+  FiRefreshCw,
+  FiAward,
+} from "react-icons/fi";
 
+function Footer() {
   return (
     <footer className="footer">
 
@@ -20,96 +28,178 @@ function Footer() {
 
         <div className="footer-brand">
 
-          <h2>Sundarkanya</h2>
+          <h2>
+            Sundar <span>Kanya</span>
+          </h2>
 
           <p>
-            Elegant jewellery crafted with love,
-            beauty and timeless designs.
+            Elegant jewellery crafted to celebrate
+            beauty, confidence and timeless fashion.
+            Every piece is designed to make every
+            moment special.
           </p>
 
-          <div className="social-icons">
+          <div className="footer-socials">
+
+            {/* <a href="#">
+              <FaInstagram />
+            </a>
 
             <a href="#">
               <FaFacebookF />
+            </a> */}
+
+            <a href="https://pin.it/7GT9tqfpH">
+              <FaPinterestP />
             </a>
 
-            <a href="#">
-              <FaInstagram />
-            </a>
+            {/* <a href="#">
+              <FaYoutube />
+            </a> */}
 
           </div>
 
         </div>
 
-        {/* Quick Links */}
+        {/* Shop */}
 
-        <div>
+        <div className="footer-column">
 
-          <h3>Quick Links</h3>
+          <h3>Shop</h3>
 
-          <ul>
+          <Link to="/products?category=earrings">
+            Earrings
+          </Link>
 
-            {footerLinks.quickLinks.map((item) => (
+          <Link to="/products?category=pendant">
+            Pendants
+          </Link>
 
-              <li key={item.name}>
+          <Link to="/products?category=bracelet">
+            Bracelets
+          </Link>
 
-                <Link to={item.path}>
-                  {item.name}
-                </Link>
-
-              </li>
-
-            ))}
-
-          </ul>
+          <Link to="/products">
+            New Arrivals
+          </Link>
 
         </div>
 
-        {/* Categories */}
+        {/* Support */}
 
-        <div>
+        <div className="footer-column">
 
-          <h3>Categories</h3>
+          <h3>Support</h3>
 
-          <ul>
+          <Link to="/about">
+            About Us
+          </Link>
 
-            {footerLinks.categories.map((item) => (
+          <Link to="/contact">
+            Contact
+          </Link>
 
-              <li key={item.name}>
+          <Link to="/wishlist">
+            Wishlist
+          </Link>
 
-                <Link to={item.path}>
-                  {item.name}
-                </Link>
-
-              </li>
-
-            ))}
-
-          </ul>
+          <Link to="/cart">
+            Shopping Cart
+          </Link>
 
         </div>
 
         {/* Contact */}
 
-        <div>
+        <div className="footer-column">
 
           <h3>Contact</h3>
 
-          <p>{footerLinks.contact.address}</p>
+          <div className="footer-contact">
 
-          <p>{footerLinks.contact.phone}</p>
+            <p>
+              <FiMapPin />
+              Bijnor Uttar Pradesh , India
+            </p>
 
-          <p>{footerLinks.contact.email}</p>
+            <p>
+              <FiPhone />
+              +91 94560 46007
+            </p>
+
+            <p>
+              <FiMail />
+              sundarkanya.support@gmail.com
+            </p>
+
+          </div>
 
         </div>
 
       </div>
 
+      {/* Trust Bar */}
+
+      <div className="footer-features">
+
+        <div>
+
+          <FiTruck />
+
+          <span>Free Shipping</span>
+
+        </div>
+
+        <div>
+
+          <FiShield />
+
+          <span>Secure Payment</span>
+
+        </div>
+
+        <div>
+
+          <FiAward />
+
+          <span>Premium Quality</span>
+
+        </div>
+
+        <div>
+
+          <FiRefreshCw />
+
+          <span>Easy Returns</span>
+
+        </div>
+
+      </div>
+
+      {/* Bottom */}
+
       <div className="footer-bottom">
 
         <p>
-           {new Date().getFullYear()} Sundarkanya
+          © {new Date().getFullYear()} Sundar Kanya
+          
         </p>
+
+        {/* <div className="footer-bottom-links">
+
+          <Link to="/privacy">
+            Privacy Policy
+          </Link>
+
+          <Link to="/terms">
+            Terms
+          </Link>
+
+          <Link to="/refund">
+            Refund Policy
+          </Link>
+
+        </div> */}
 
       </div>
 

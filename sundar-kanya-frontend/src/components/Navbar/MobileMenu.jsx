@@ -1,4 +1,11 @@
 import { Link } from "react-router-dom";
+import {
+  FiX,
+  FiHeart,
+  FiShoppingCart,
+  FiUser,
+  FiChevronRight,
+} from "react-icons/fi";
 
 function MobileMenu({
   isLoggedIn,
@@ -15,98 +22,136 @@ function MobileMenu({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mobile-header">
-          <h2>Sundarkanya</h2>
+          <div className="mobile-logo">
+            <h2>Sundar Kanya</h2>
+            <span>JEWELLERY</span>
+          </div>
 
           <button
             className="close-btn"
             onClick={closeMenu}
           >
-            ✕
+            <FiX />
           </button>
         </div>
 
-        <Link to="/" onClick={closeMenu}>🏠 Home</Link>
+        <nav className="mobile-links">
 
-        <Link to="/products/category/earrings" onClick={closeMenu}>
-          ✨ Earrings
-        </Link>
+          <Link to="/" onClick={closeMenu}>
+            HOME
+            <FiChevronRight />
+          </Link>
 
-        <Link to="/products/category/pendant" onClick={closeMenu}>
-          💎 Pendants
-        </Link>
+          <Link
+            to="/products/category/earrings"
+            onClick={closeMenu}
+          >
+            EARRINGS
+            <FiChevronRight />
+          </Link>
 
-        <Link to="/products/category/bracelet" onClick={closeMenu}>
-          🌸 Bracelets
-        </Link>
+          <Link
+            to="/products/category/pendant"
+            onClick={closeMenu}
+          >
+            PENDANTS
+            <FiChevronRight />
+          </Link>
 
-        <Link to="/wishlist" onClick={closeMenu}>
-          ❤️ Wishlist ({wishlistCount})
-        </Link>
+          <Link
+            to="/products/category/bracelet"
+            onClick={closeMenu}
+          >
+            BRACELETS
+            <FiChevronRight />
+          </Link>
 
-        <Link to="/cart" onClick={closeMenu}>
-          🛒 Cart ({cartCount})
-        </Link>
+          <Link
+            to="/products"
+            onClick={closeMenu}
+          >
+            COLLECTIONS
+            <FiChevronRight />
+          </Link>
 
-        <Link to="/about" onClick={closeMenu}>
-          ℹ️ About
-        </Link>
+          <Link
+            to="/about"
+            onClick={closeMenu}
+          >
+            ABOUT
+            <FiChevronRight />
+          </Link>
 
-        <Link to="/contact" onClick={closeMenu}>
-          📞 Contact
-        </Link>
+          <Link
+            to="/contact"
+            onClick={closeMenu}
+          >
+            CONTACT
+            <FiChevronRight />
+          </Link>
 
-        <hr />
+        </nav>
 
-        {isLoggedIn ? (
-          <>
+        <div className="mobile-icons">
 
-            {user?.role === "admin" && (
-              <Link to="/admin" onClick={closeMenu}>
-                👑 Admin Panel
+          <Link to="/wishlist" onClick={closeMenu}>
+            <FiHeart />
+            Wishlist ({wishlistCount})
+          </Link>
+
+          <Link to="/cart" onClick={closeMenu}>
+            <FiShoppingCart />
+            Cart ({cartCount})
+          </Link>
+
+        </div>
+
+        <div className="mobile-account">
+
+          {isLoggedIn ? (
+            <>
+              <Link to="/profile" onClick={closeMenu}>
+                <FiUser />
+                My Profile
               </Link>
-            )}
 
-            <Link to="/profile" onClick={closeMenu}>
-              👤 My Profile
-            </Link>
+              {user?.role === "admin" && (
+                <Link to="/admin" onClick={closeMenu}>
+                  Admin Panel
+                </Link>
+              )}
 
-            <Link to="/orders" onClick={closeMenu}>
-              📦 My Orders
-            </Link>
+              <button
+                className="mobile-logout"
+                onClick={() => {
+                  logout();
+                  closeMenu();
+                }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                className="mobile-login"
+                to="/login"
+                onClick={closeMenu}
+              >
+                Login
+              </Link>
 
-            <Link to="/settings" onClick={closeMenu}>
-              ⚙️ Settings
-            </Link>
+              <Link
+                className="mobile-register"
+                to="/register"
+                onClick={closeMenu}
+              >
+                Register
+              </Link>
+            </>
+          )}
 
-            <button
-              className="mobile-logout"
-              onClick={() => {
-                logout();
-                closeMenu();
-              }}
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link
-              className="mobile-login"
-              to="/login"
-              onClick={closeMenu}
-            >
-              Login
-            </Link>
-
-            <Link
-              className="mobile-register"
-              to="/register"
-              onClick={closeMenu}
-            >
-              Register
-            </Link>
-          </>
-        )}
+        </div>
       </div>
     </div>
   );

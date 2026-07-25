@@ -75,11 +75,13 @@ await sendEmail({
       order,
     });
   } catch (error) {
-    res.status(500).json({
-      message: "Server error",
-      error: error.message,
-    });
-  }
+  console.log(error); // <-- Add this
+
+  res.status(500).json({
+    message: "Server error",
+    error: error.message,
+  });
+}
 };
 
 // Get Logged-in User Orders

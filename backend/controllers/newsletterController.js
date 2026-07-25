@@ -5,12 +5,18 @@ export const subscribe = async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
-      return res.status(400).json({ error: "Email is required" });
+      return res.status(400).json({
+      message: "Email is required",
+    });
     }
 
     const existing = await Subscriber.findOne({ email });
     if (existing) {
-      return res.status(400).json({ error: "Already subscribed" });
+      return res.status(400).json({
+          message: "Already subscribed",
+        });
+
+        
     }
 
     const subscriber = new Subscriber({ email });
@@ -19,7 +25,9 @@ export const subscribe = async (req, res) => {
     res.status(201).json({ message: "Subscribed successfully!", subscriber });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({
+          message: "Server error",
+        });
   }
 };
 

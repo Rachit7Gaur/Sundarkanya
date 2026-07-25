@@ -8,6 +8,8 @@ import {
   cancelOrder,
 } from "../../services/orderService";
 
+import generateInvoice from "../../utils/InvoiceGenerator";
+
 import "./MyOrders.css";
 
 const MyOrders = () => {
@@ -142,8 +144,12 @@ const handleCancelOrder = async (order) => {
 
   return (
     <div className="orders-page">
-      <h1>My Orders</h1>
-
+<>
+  <h1>📦 My Orders</h1>
+  <p className="subtitle">
+    Track and manage all your SundarKanya purchases
+  </p>
+</>
       {orders.length === 0 ? (
         <div className="empty-orders">
           <h2>No orders found</h2>
@@ -161,11 +167,15 @@ const handleCancelOrder = async (order) => {
               <div className="order-header">
                 <h3>Order #{order._id.slice(-6)}</h3>
 
-                <span
-                  className={`status ${order.orderStatus.toLowerCase()}`}
-                >
-                  {order.orderStatus}
-                </span>
+<span
+  className={`status ${order.orderStatus.toLowerCase()}`}
+>
+  {order.orderStatus === "Pending" && "🟡 Pending"}
+  {order.orderStatus === "Processing" && "🔵 Processing"}
+  {order.orderStatus === "Shipped" && "🚚 Shipped"}
+  {order.orderStatus === "Delivered" && "✅ Delivered"}
+  {order.orderStatus === "Cancelled" && "❌ Cancelled"}
+</span>
               </div>
 
               <p>
@@ -201,36 +211,41 @@ const handleCancelOrder = async (order) => {
                 ))}
               </div>
 
-              <div className="shipping-box">
-                <h4>Shipping Address</h4>
+<div className="shipping-box">
+  <h4>📍 Shipping Address</h4>
 
-                <p>{order.shippingAddress.fullName}</p>
+  <p><strong>{order.shippingAddress.fullName}</strong></p>
 
-                <p>{order.shippingAddress.phone}</p>
+  <p>{order.shippingAddress.phone}</p>
 
-                <p>{order.shippingAddress.address}</p>
+  <p>{order.shippingAddress.address}</p>
 
-                <p>
-                  {order.shippingAddress.city},{" "}
-                  {order.shippingAddress.state}
-                </p>
+  <p>
+    {order.shippingAddress.city},{" "}
+    {order.shippingAddress.state}
+  </p>
 
-                <p>{order.shippingAddress.pincode}</p>
-              </div>
+  <p>{order.shippingAddress.pincode}</p>
+</div>
 
-              <p>
-                <strong>Total:</strong> ₹{order.totalAmount}
-              </p>
+<div className="payment-summary">
 
-              <p>
-                <strong>Payment Method:</strong>{" "}
-                {order.paymentMethod}
-              </p>
+  <div>
+    <span>Total</span>
+    <strong>₹{order.totalAmount}</strong>
+  </div>
 
-              <p>
-                <strong>Payment Status:</strong>{" "}
-                {order.paymentStatus}
-              </p>
+  <div>
+    <span>Payment</span>
+    <strong>{order.paymentMethod}</strong>
+  </div>
+
+  <div>
+    <span>Status</span>
+    <strong>{order.paymentStatus}</strong>
+  </div>
+
+</div>
 
               <div className="order-actions">
               <Link
@@ -239,6 +254,13 @@ const handleCancelOrder = async (order) => {
               >
                 View Details
               </Link>
+
+              <button
+                className="invoice-btn"
+                onClick={() => generateInvoice(order)}
+              >
+                📄 Download Invoice
+              </button>
 
               {["Pending", "Processing"].includes(order.orderStatus) &&
                 (Date.now() - new Date(order.createdAt).getTime()) <
@@ -249,6 +271,8 @@ const handleCancelOrder = async (order) => {
                   >
                     Cancel Order
                   </button>
+
+                  
               )}
             </div>
             </div>

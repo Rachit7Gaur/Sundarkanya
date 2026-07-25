@@ -10,7 +10,7 @@ function Login() {
 
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +20,7 @@ function Login() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -43,45 +43,53 @@ function Login() {
   };
 
   return (
-    <section className="login-page">
+    <section className="sk-login-page">
+      <div className="sk-login-card">
 
-      <div className="login-card">
+<div className="sk-brand">
+    <h1>
+        Sundar<span>Kanya</span>
+    </h1>
 
-        <h2>Welcome Back</h2>
+    <p>Luxury Jewellery Collection</p>
+</div>
+        <h2>Welcome Back 👋</h2>
 
-        <p>Login to your Sundarkanya account</p>
+        <p>
+          Sign in to continue shopping your favourite
+          jewellery.
+        </p>
 
         {error && (
-          <div className="error-box">
+          <div className="sk-error-box">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
 
-          <div className="input-group">
-
-            <label>Email</label>
+          <div className="sk-input-group">
+            <label>Email Address</label>
 
             <input
               type="email"
               name="email"
+              placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
               required
             />
-
           </div>
 
-          <div className="input-group">
-
+          <div className="sk-input-group">
             <label>Password</label>
 
-            <div className="password-box">
+            <div className="sk-password-box">
 
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
+                placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
                 required
@@ -89,7 +97,7 @@ function Login() {
 
               <button
                 type="button"
-                className="eye-btn"
+                className="sk-eye-btn"
                 onClick={() =>
                   setShowPassword(!showPassword)
                 }
@@ -102,35 +110,37 @@ function Login() {
               </button>
 
             </div>
-
           </div>
 
           <button
-            className="login-btn"
+            className="sk-login-btn"
             disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Signing In..." : "Sign In"}
           </button>
 
         </form>
 
-        <div className="login-links">
+        <div className="sk-divider">
+          <span>OR</span>
+        </div>
+
+        <div className="sk-login-links">
 
           <Link to="/forgot-password">
             Forgot Password?
           </Link>
 
           <p>
-            Don't have an account?{" "}
+            New to SundarKanya?{" "}
             <Link to="/register">
-              Register
+              Create Account
             </Link>
           </p>
 
         </div>
 
       </div>
-
     </section>
   );
 }

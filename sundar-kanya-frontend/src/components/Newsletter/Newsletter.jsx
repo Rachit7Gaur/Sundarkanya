@@ -1,38 +1,67 @@
 import "./Newsletter.css";
 import { useState } from "react";
-import axios from "axios";
+import toast from "react-hot-toast";
+import api from "../../services/api";
 
 function Newsletter() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState(null); 
+const [loading, setLoading] = useState(false);
+const [subscribed, setSubscribed] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email.trim()) return;
+    if (!email.trim()) {
+      return toast.error("Please enter your email");
+    }
 
     try {
-      await axios.post("http://localhost:5000/api/newsletter/subscribe", { email });
+      setLoading(true);
 
-      setStatus("success");
+      const { data } = await api.post("/newsletter/subscribe", {
+        email,
+      });
+
+      toast.success(data.message || "Subscribed successfully!");
+      setSubscribed(true);
+
+      setTimeout(() => {
+        setSubscribed(false);
+      }, 3000);
+
       setEmail("");
-    } catch (err) {
-      console.error("Subscription failed:", err);
-      setStatus("error");
+    }  catch (err) {
+  console.log("Newsletter Error:", err.response?.data);
+
+  toast.error(
+    err.response?.data?.message ||
+    err.response?.data?.error ||
+    "Subscription failed"
+  );
+} finally {
+      setLoading(false);
     }
   };
 
   return (
     <section className="newsletter">
       <div className="newsletter-content">
-        <span className="newsletter-tag">✨ Join Our Community</span>
+        <span className="newsletter-tag">
+          ✨ Join Our Community
+        </span>
+
         <h2>Get Exclusive Offers</h2>
+
         <p>
-          Subscribe to receive updates on new arrivals,
-          special discounts and jewellery collections.
+          Subscribe to receive updates about new jewellery
+          collections, festive offers, exclusive discounts
+          and special promotions from Sundar Kanya.
         </p>
 
-        <form className="newsletter-form" onSubmit={handleSubmit}>
+        <form
+          className="newsletter-form"
+          onSubmit={handleSubmit}
+        >
           <input
             type="email"
             placeholder="Enter your email"
@@ -41,15 +70,17 @@ function Newsletter() {
             required
           />
 
-          <button type="submit">Subscribe</button>
+          <button
+          type="submit"
+          disabled={loading || subscribed}
+        >
+          {loading
+            ? "Subscribing..."
+            : subscribed
+            ? "✓ Subscribed"
+            : "Subscribe"}
+        </button>
         </form>
-
-        {status === "success" && (
-          <p className="success-msg">🎉 Thank you for subscribing!</p>
-        )}
-        {status === "error" && (
-          <p className="error-msg">⚠️ Something went wrong. Try again.</p>
-        )}
       </div>
     </section>
   );

@@ -57,3 +57,10 @@ export const deleteProduct = async (id) => {
   const response = await api.delete(`/products/${id}`);
   return response.data;
 };
+
+export const searchProducts = async (query) => {
+  const { data } = await api.get(
+    `/products/search?q=${query}`
+  );
+  return data;
+};

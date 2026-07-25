@@ -16,7 +16,7 @@ import contactRoutes from "./routes/contactRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
 import webhookRoutes from "./routes/webhookRoutes.js";
-
+import settingsRoutes from "./routes/settingsRoutes.js";
 
 
 dotenv.config();
@@ -27,6 +27,7 @@ app.use("/api/webhooks", webhookRoutes);
 app.use(cors({
   origin: [
     "http://localhost:5173",
+    "http://localhost:5174",
     process.env.FRONTEND_URL,
   ],
   credentials: true,
@@ -47,6 +48,7 @@ app.use("/api/admin" , adminRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/wishlist", wishlistRoutes);
+app.use("/api/settings", settingsRoutes);
 
 
 app.get("/", (req, res) => {

@@ -1,52 +1,44 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
 function NavLinks() {
-  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <ul className="nav-links">
 
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">HOME</Link>
       </li>
 
-      <li
-        className="dropdown"
-        onMouseEnter={() => setShowDropdown(true)}
-        onMouseLeave={() => setShowDropdown(false)}
-      >
-        <span className="shop-link">
-          Shop ▾
-        </span>
+       <li className="nav-item-has-dropdown">
+        <button type="button" className="nav-dropdown-btn">
+          JEWELLERY
+          <FiChevronDown className="dropdown-icon" />
+        </button>
 
-        {showDropdown && (
-          <div className="dropdown-menu">
-
-            <Link to="/products/category/earrings">
-             ✨ Earrings
-            </Link>
-
-            <Link to="/products/category/pendant">
-             💎 Pendants
-            </Link>
-
-            <Link to="/products/category/bracelet">
-             🌸 Bracelets
-            </Link>
-
-            {/* <Link to="/new-arrivals">🆕 New Arrivals</Link> */}
-
-          </div>
-        )}
+        <div className="nav-dropdown">
+          <Link to="/products/category/earrings">Earrings</Link>
+          <Link to="/products/category/pendant">Pendants</Link>
+          <Link to="/products/category/bracelet">Bracelets</Link>
+        </div>
       </li>
 
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/products">
+          COLLECTIONS
+        </Link>
       </li>
 
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/about">
+          ABOUT
+        </Link>
+      </li>
+
+      <li>
+        <Link to="/contact">
+          CONTACT
+        </Link>
       </li>
 
     </ul>

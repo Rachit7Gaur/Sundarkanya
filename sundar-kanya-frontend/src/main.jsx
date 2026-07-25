@@ -13,10 +13,12 @@ import "./index.css";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import { WishlistProvider } from "./context/WishlistContext.jsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+       <ScrollToTop />
       <AuthProvider>
         <CartProvider>
           <WishlistProvider>
@@ -53,6 +55,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </WishlistProvider>
         </CartProvider>
       </AuthProvider>
+
     </BrowserRouter>
   </React.StrictMode>
 );

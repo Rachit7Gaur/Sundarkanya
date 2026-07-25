@@ -1,0 +1,213 @@
+.newsletter-page{
+    padding:10px;
+}
+
+.newsletter-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.newsletter-header h1{
+    color:#111827;
+    margin-bottom:6px;
+}
+
+.newsletter-header p{
+    color:#6b7280;
+}
+
+.subscriber-card{
+    background:#fff;
+    padding:20px 28px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.subscriber-card svg{
+    font-size:34px;
+    color:#D4AF37;
+}
+
+.subscriber-card h2{
+    margin:0;
+    color:#111827;
+}
+
+.subscriber-card span{
+    color:#777;
+    font-size:14px;
+}
+
+.newsletter-search{
+    background:#fff;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.newsletter-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+}
+
+.newsletter-table{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.newsletter-table table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.newsletter-table th{
+    background:#D4AF37;
+    color:#fff;
+    text-align:left;
+    padding:18px;
+}
+
+.newsletter-table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+}
+
+.delete-btn{
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    background:#dc2626;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+    transform:scale(1.05);
+}
+
+/* Overlay */
+.delete-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+    animation: fadeIn .25s ease;
+}
+
+/* Modal */
+.delete-modal {
+    width: 420px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    animation: scaleIn .25s ease;
+}
+
+.delete-modal h2 {
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+.delete-modal p {
+    color: #6b7280;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.delete-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cancel-btn,
+.confirm-btn {
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.cancel-btn {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.cancel-btn:hover {
+    background: #d1d5db;
+}
+
+.confirm-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background: #b91c1c;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.newsletter-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.export-btn{
+    background:#B08D57;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.export-btn:hover{
+    background:#966f3b;
+}

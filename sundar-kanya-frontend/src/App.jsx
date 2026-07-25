@@ -1,4 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -15,164 +20,158 @@ import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import AdminRoute from "./routes/AdminRoute";
-import AddProduct from "./pages/Admin/AddProducts/AddProduct";
-import ManageProducts from "./pages/Admin/Products/ManageProducts";
-import EditProduct from "./pages/Admin/EditProduct/EditProduct";
-import Orders from "./pages/Admin/Orders/Orders";
-import Dashboard from "./pages/Admin/AdminMenu/AdminMenu";
-import AdminLayout from "./components/admin/AdminLayout";
+
+// Admin Layout
+import AdminLayout from "./admin/layout/AdminLayout";
+
+// Admin Pages
+import Dashboard from "./admin/pages/Dashboard/Dashboard";
+import ManageProducts from "./admin/pages/Products/ManageProducts";
+import AddProduct from "./admin/pages/Products/AddProduct";
+import EditProduct from "./admin/pages/Products/EditProduct";
+import Orders from "./admin/pages/Orders/Orders";
+import OrderDetails from "./admin/pages/Orders/OrderDetails"
+import Customers from "./admin/pages/Customers/Customers";
+import CustomerDetails from "./admin/pages/Customers/CustomerDetails";
+import Analytics from "./admin/pages/Analytics/Analytics";
+import Newsletter from "./admin/pages/Newsletter/Newsletter";
+import Settings from "./admin/pages/Settings/Settings";
+
 import MyOrders from "./pages/MyOrders/MyOrders";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-import Messages from "./pages/Admin/Messages/Messages";
-import Customers from "./pages/Admin/Customers/Customers";
 import Wishlist from "./pages/Wishlist/Wishlist";
-import Settings from "./pages/Settings/Settings";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import ScrollToTop from "./components/ScrollToTop";
 
-export default function App() {
-  return (
-    <div className="app">
+function App() {
 
-      <Navbar />
+  const location = useLocation();
 
-      <main>
-        <Routes>
+  const isAdminRoute =
+    location.pathname.startsWith("/admin");
+ return (
+  <div className="app">
 
-          {/* Public Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+    {!isAdminRoute && <Navbar />}
 
-          <Route
-            path="/products/category/:category"
-            element={<Products />}
+    <main className={isAdminRoute ? "" : "main-content"}>
+      <Routes>
+
+        {/* Public Routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+
+        <Route
+          path="/products/category/:category"
+          element={<Products />}
+        />
+
+        <Route
+          path="/products/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPassword />}
+        />
+
+        {/* Protected Routes */}
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path="/wishlist" 
+          element={
+            <ProtectedRoute>
+              <Wishlist />
+            </ProtectedRoute>
+          }
           />
-          <Route path="/products/:id" element={<ProductDetails />} />
-          <Route
-            path="/forgot-password"
-            element={<ForgotPassword />}
-            />
-            <Route
-              path="/reset-password/:token"
-              element={<ResetPassword />}
-            />
 
-          {/* Protected Route */}
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <ProfilePage />
-              </ProtectedRoute>
-            }
-          />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <MyOrders />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute>
-                <Cart />
-              </ProtectedRoute>
-            }
-          />
+        <Route
+          path="/order-confirmation/:id"
+          element={
+            <ProtectedRoute>
+              <OrderConfirmation />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route
-            path="/checkout"
-            element={
-              <ProtectedRoute>
-                <Checkout />
-              </ProtectedRoute>
-            }
-          />
+        {/* Admin */}
 
-          <Route
-            path="/orders"
-            element={
-              <ProtectedRoute>
-                <MyOrders />
-              </ProtectedRoute>
-            }
-          />
+        <Route path="/admin" element={
+            <AdminRoute>
+              <AdminLayout />
+            </AdminRoute>
+          }
+        >
+          <Route index element={<Dashboard />} />
+          <Route path="products" element={<ManageProducts />} />
+          <Route path="products/add" element={<AddProduct />} />
+          <Route path="products/edit/:id" element={<EditProduct />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="orders/:id" element={<OrderDetails />}/>   
+          <Route path="customers" element={<Customers />}/>
+          <Route path="customers/:id" element={<CustomerDetails />}/>   
+          <Route path="analytics" element={<Analytics />} />   
+          <Route path="newsletter" element={<Newsletter />}/>  
+          <Route path="settings" element={<Settings />} />
+         </Route>
 
-          <Route
-            path="/order-confirmation/:id"
-            element={
-              <ProtectedRoute>
-                <OrderConfirmation />
-              </ProtectedRoute>
-            }
-          />
+      </Routes>
+    </main>
 
-          <Route
-              path="/wishlist"
-              element={
-                <ProtectedRoute>
-                  <Wishlist />
-                </ProtectedRoute>
-              }
-            />
+    {!isAdminRoute && <Footer />}
 
-            <Route
-              path="/settings"
-              element={
-                <ProtectedRoute>
-                  <Settings />
-                </ProtectedRoute>
-              }
-            />
+  </div>
+);
 
-
-         {/* Admin Route */}
-          <Route
-            path="/admin"
-            element={
-              <AdminRoute>
-                <AdminLayout />
-              </AdminRoute>
-            }
-          >
-            <Route index element={<Dashboard />} />
-
-            <Route
-              path="products"
-              element={<ManageProducts />}
-            />
-
-            <Route
-              path="products/add"
-              element={<AddProduct />}
-            />
-
-            <Route
-              path="products/edit/:id"
-              element={<EditProduct />}
-            />
-
-            <Route
-              path="orders"
-              element={<Orders />}
-            />
-
-            <Route
-              path="customers"
-              element={<Customers />}
-            />
-
-            <Route
-              path="messages"
-              element={<Messages />}
-            />
-          </Route>
-        </Routes>
-      </main>
-
-      <Footer />
-
-    </div>
-  );
 }
+
+export default App;

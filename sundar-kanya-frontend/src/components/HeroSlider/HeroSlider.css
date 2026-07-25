@@ -1,0 +1,401 @@
+/* ==========================================
+   HERO SECTION
+========================================== */
+.hero-slide{
+    position:absolute;
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0;
+
+    transform:scale(1.08);
+
+    transition:
+        opacity 1s ease,
+        transform 6s linear;
+
+    z-index:0;
+}
+
+.hero-slide.active{
+    opacity:1;
+    transform:scale(1);
+}
+.hero-slider{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 130px);
+    margin-top:130px;
+
+    display: flex;
+    align-items: center;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 102%;
+
+    overflow: hidden;
+
+    animation:
+        heroFade .8s ease,
+        heroZoom 6s linear;
+}
+
+.hero-overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+
+    margin-left: 90px;
+    max-width: 620px;
+
+    color: #fff;
+
+    animation: heroContent .8s ease forwards;
+}
+
+@keyframes heroContent{
+
+    0%{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero-subtitle{
+    color: #D4AF37;
+    letter-spacing: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    animation: fadeUp .6s ease .2s both;
+}
+
+.hero-content h1{
+    font-family: "Cormorant Garamond", serif;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 28px;
+    animation: fadeUp .7s ease .4s both;
+}
+
+.hero-content h1 span{
+    color: #D4AF37;
+}
+
+.hero-btn{
+    display: inline-block;
+
+    background: #D4AF37;
+    color: #111;
+
+    text-decoration: none;
+
+    padding: 18px 38px;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
+    animation: fadeUp .8s ease .6s both;
+    transition: all .35s ease;
+}
+
+.hero-btn:hover{
+    background: #fff;
+    color: #111;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@media (max-width:992px){
+
+.hero-slider{
+    margin-top:75px;
+    height:calc(100vh - 75px);
+}
+
+.hero-content{
+    margin-left:50px;
+    max-width:500px;
+}
+
+.hero-content h1{
+    font-size:48px;
+}
+
+.hero-btn{
+    padding:15px 30px;
+}
+
+}
+@media (max-width:768px){
+
+.hero-slider{
+    margin-top:75px;
+    height:75vh;
+}
+
+.hero-content{
+    margin:0 25px;
+    max-width:100%;
+}
+
+.hero-subtitle{
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.hero-content h1{
+    font-size:36px;
+}
+
+.hero-btn{
+    padding:14px 24px;
+    font-size:12px;
+}
+
+}
+@media (max-width:480px){
+
+.hero-slider{
+    height:70vh;
+}
+
+.hero-content h1{
+    font-size:30px;
+}
+
+.hero-btn{
+    width:100%;
+    text-align:center;
+}
+
+}
+/* ==========================================
+   HERO ARROWS
+========================================== */
+
+.hero-arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.18);
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition: .35s ease;
+}
+
+.hero-arrow:hover{
+    background: #D4AF37;
+    color: #111;
+}
+
+.hero-arrow.left{
+    left: 30px;
+}
+
+.hero-arrow.right{
+    right: 30px;
+}
+
+/* ==========================================
+   HERO DOTS
+========================================== */
+
+.hero-dots{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:10;
+}
+
+.hero-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,.7);
+    cursor:pointer;
+    transition:.35s ease;
+}
+
+.hero-dot.active{
+    width:32px;
+    height:10px;
+    border-radius:30px;
+    background:#D4AF37;
+}
+
+.hero-dot:hover{
+    background: #D4AF37;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes heroFade{
+    from{
+        opacity: .6;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes heroZoom{
+    from{
+        background-size: 100%;
+    }
+    to{
+        background-size: 104%;
+    }
+}
+
+@keyframes contentUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:992px){
+
+    .hero-slider{
+        height: 75vh;
+    }
+
+    .hero-content{
+        margin-left: 60px;
+        max-width: 500px;
+    }
+
+    .hero-content h1{
+        font-size: 56px;
+    }
+}
+
+@media (max-width:768px){
+
+    .hero-slider{
+        height: 70vh;
+        justify-content: center;
+        text-align: center;
+        padding: 0 25px;
+    }
+
+    .hero-content{
+        margin-left: 0;
+    }
+
+    .hero-content h1{
+        font-size: 42px;
+    }
+
+    .hero-subtitle{
+        font-size: 12px;
+    }
+
+    .hero-btn{
+        padding: 16px 28px;
+        font-size: 12px;
+    }
+
+    .hero-arrow{
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+    }
+
+    .hero-arrow.left{
+        left: 15px;
+    }
+
+    .hero-arrow.right{
+        right: 15px;
+    }
+}
+
+@media (max-width:480px){
+
+    .hero-slider{
+        height: 65vh;
+    }
+
+    .hero-content h1{
+        font-size: 34px;
+    }
+
+    .hero-btn{
+        padding: 14px 22px;
+    }
+
+    .hero-dot{
+        width: 10px;
+        height: 10px;
+    }
+
+    .hero-dot.active{
+        width: 26px;
+    }
+}

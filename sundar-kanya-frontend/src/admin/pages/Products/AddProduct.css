@@ -1,0 +1,283 @@
+.add-product{
+    padding:35px;
+    background:#f8f9fc;
+    min-height:100vh;
+}
+
+/* Header */
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.page-header h1{
+    font-size:32px;
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.page-header p{
+    color:#6b7280;
+    font-size:15px;
+}
+
+/* Form */
+
+.product-form{
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Inputs */
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:25px;
+}
+
+.form-group label{
+    font-weight:600;
+    margin-bottom:10px;
+    color:#374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    background:white;
+
+}
+
+.form-group textarea{
+    resize:none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:#D4AF37;
+    box-shadow:0 0 0 4px rgba(212,175,55,.15);
+
+}
+
+/* Price + Stock */
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+/* Upload */
+
+.upload-box{
+
+    border:2px dashed #D4AF37;
+    border-radius:16px;
+    padding:35px;
+    text-align:center;
+    background:#fffdf6;
+    cursor:pointer;
+    transition:.3s;
+    position:relative;
+
+}
+
+.upload-content{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:12px;
+}
+
+.upload-icon{
+font-size:55px;
+}
+
+.upload-content h3{
+font-size:22px;
+color:#111827;
+margin:0;
+}
+
+.upload-content p{
+margin:0;
+font-size:16px;
+color:#6b7280;
+}
+
+.upload-content small{
+color:#9ca3af;
+font-size:13px;
+}
+
+.upload-box:hover{
+
+    background:#fff8e7;
+
+}
+
+.upload-box p{
+
+    font-size:16px;
+    color:#6b7280;
+    margin-bottom:15px;
+
+}
+
+.upload-box input{
+
+    border:none;
+    background:none;
+    cursor:pointer;
+
+}
+
+/* Image Preview */
+
+.image-preview-container{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:25px;
+
+}
+
+.preview-card{
+
+    width:130px;
+    height:130px;
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.preview-card img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+.remove-image-btn{
+
+    position:absolute;
+    top:8px;
+    right:8px;
+
+    width:30px;
+    height:30px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#ef4444;
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.remove-image-btn:hover{
+
+    background:#dc2626;
+    transform:scale(1.1);
+
+}
+
+/* Button */
+
+.save-product-btn{
+
+    width:100%;
+    height:55px;
+
+    border:none;
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#D4AF37,#b8860b);
+
+    color:white;
+
+    font-size:17px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+.save-product-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 24px rgba(212,175,55,.3);
+
+}
+
+.save-product-btn:disabled{
+
+    opacity:.7;
+    cursor:not-allowed;
+    transform:none;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.form-row{
+
+    grid-template-columns:1fr;
+
+}
+
+.product-form{
+
+    padding:25px;
+
+}
+
+.page-header h1{
+
+    font-size:26px;
+
+}
+
+.preview-card{
+
+    width:100px;
+    height:100px;
+
+}
+
+}
