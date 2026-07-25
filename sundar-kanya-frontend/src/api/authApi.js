@@ -11,3 +11,7 @@ export const loginUser = (data)=>{
 export const getProfile= (data)=>{
   return api.get("/auth/profile");
 };
+
+export const updateSettings = async (data) => {
+  return api.put("/auth/settings", data);
+};

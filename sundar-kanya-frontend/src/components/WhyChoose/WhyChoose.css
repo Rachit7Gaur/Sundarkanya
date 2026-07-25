@@ -1,62 +1,152 @@
-.why-choose{
-    padding:80px 8%;
-    background:#fff;
+/* ==========================================
+   WHY CHOOSE US
+========================================== */
+
+.why-choose-section{
+    padding:110px 8%;
+    background:#FAF7F2;
+}
+
+.section-heading{
+    max-width:720px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.section-tag{
+    display:inline-block;
+    color:#B08D57;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.section-heading h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:52px;
+    color:#222;
+    margin-bottom:18px;
+}
+
+.section-heading p{
+    color:#777;
+    font-size:17px;
+    line-height:1.8;
 }
 
 .feature-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:28px;
+    gap:35px;
 }
 
 .feature-card{
-    background:#fff;
-    border:1px solid #f7dce7;
-    border-radius:20px;
-    padding:35px 25px;
+    background:#FAF7F2;
+    border-radius:22px;
+    padding:45px 30px;
     text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
     transition:.35s;
-    height:100%;
+    position:relative;
+    overflow:hidden;
+    border:1px solid transparent;
+}
+
+.feature-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:4px;
+    background:#B08D57;
+    transform:scaleX(0);
+    transition:.35s;
 }
 
 .feature-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 18px 35px rgba(214,51,132,.15);
+    transform:translateY(-10px);
+    background:#fff;
+    border-color:#eee;
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+}
+
+.feature-card:hover::before{
+    transform:scaleX(1);
 }
 
 .feature-icon{
     width:80px;
     height:80px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    background:#fdebf4;
+    margin:0 auto 25px;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#d63384;
+    border-radius:50%;
+    background:#B08D57;
+    color:#fff;
     font-size:34px;
+    transition:.35s;
+}
+
+.feature-card:hover .feature-icon{
+    transform:rotateY(180deg);
+    background:#222;
 }
 
 .feature-card h3{
-    color:#333;
-    font-size:22px;
-    margin-bottom:12px;
-    min-height:56px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    font-size:24px;
+    color:#222;
+    margin-bottom:15px;
+    font-family:"Cormorant Garamond",serif;
 }
 
 .feature-card p{
     color:#666;
+    line-height:1.8;
     font-size:15px;
-    line-height:1.7;
 }
 
-/* ---------- Large Tablet ---------- */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
-@media(max-width:1200px){
+@media(max-width:768px){
+
+.why-choose-section{
+    padding:80px 20px;
+}
+
+.section-heading{
+    margin-bottom:50px;
+}
+
+.section-heading h2{
+    font-size:38px;
+}
+
+.section-heading p{
+    font-size:15px;
+}
+
+.feature-card{
+    padding:35px 25px;
+}
+
+.feature-icon{
+    width:70px;
+    height:70px;
+    font-size:28px;
+}
+
+.feature-card h3{
+    font-size:22px;
+}
+
+}
+
+@media(max-width:992px){
 
 .feature-grid{
     grid-template-columns:repeat(2,1fr);
@@ -64,94 +154,10 @@
 
 }
 
-/* ---------- Tablet ---------- */
-
-@media(max-width:992px){
-
-.why-choose{
-    padding:60px 30px;
-}
-
-.feature-grid{
-    gap:22px;
-}
-
-.feature-card{
-    padding:30px 20px;
-}
-
-.feature-icon{
-    width:72px;
-    height:72px;
-    font-size:30px;
-}
-
-.feature-card h3{
-    font-size:20px;
-}
-
-}
-
-/* ---------- Mobile ---------- */
-
 @media(max-width:768px){
-
-.why-choose{
-    padding:45px 18px;
-}
 
 .feature-grid{
     grid-template-columns:1fr;
-    gap:18px;
-}
-
-.feature-card{
-    padding:28px 20px;
-}
-
-.feature-icon{
-    width:65px;
-    height:65px;
-    font-size:28px;
-}
-
-.feature-card h3{
-    font-size:19px;
-    min-height:auto;
-}
-
-.feature-card p{
-    font-size:14px;
-}
-
-}
-
-/* ---------- Small Mobile ---------- */
-
-@media(max-width:480px){
-
-.why-choose{
-    padding:35px 14px;
-}
-
-.feature-card{
-    padding:24px 18px;
-    border-radius:16px;
-}
-
-.feature-icon{
-    width:58px;
-    height:58px;
-    font-size:24px;
-}
-
-.feature-card h3{
-    font-size:18px;
-}
-
-.feature-card p{
-    font-size:13px;
-    line-height:1.6;
 }
 
 }

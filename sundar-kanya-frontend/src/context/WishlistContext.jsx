@@ -34,20 +34,29 @@ export const WishlistProvider = ({ children }) => {
     }
   };
 
-  const toggle = async (productId) => {
-    try {
-      const res = await wishlistService.toggleWishlist(productId);
+const toggle = async (productId) => {
 
-      toast.success(res.message);
+  if (!user) {
+    toast.error("Please login first");
+    return;
+  }
 
-      await loadWishlist();
-    } catch (error) {
-      toast.error(
-        error.response?.data?.message ||
-          "Something went wrong"
-      );
-    }
-  };
+  try {
+    const res = await wishlistService.toggleWishlist(productId);
+
+    toast.success(res.message);
+
+    await loadWishlist();
+
+  } catch (error) {
+
+    toast.error(
+      error.response?.data?.message ||
+      "Something went wrong"
+    );
+
+  }
+};
 
   const isWishlisted = (productId) => {
     return wishlist.some(

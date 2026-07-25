@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FiUser } from "react-icons/fi";
 
 function AccountMenu({ isLoggedIn, logout }) {
   const [open, setOpen] = useState(false);
@@ -24,9 +25,9 @@ function AccountMenu({ isLoggedIn, logout }) {
 
   return (
     <div className="account" ref={dropdownRef}>
-      <button className="account-btn" onClick={toggleDropdown}>
-        👤 Account
-      </button>
+   <button className="account-icon-btn">
+        <FiUser />
+    </button>
 
       {open && (
         <div className="account-dropdown">

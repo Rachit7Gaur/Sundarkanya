@@ -6,6 +6,7 @@ import {
   getProductsByCategory,
   updateProduct,
   deleteProduct,
+  searchProducts
 } from "../controllers/productController.js";
 
 import { protect, authorizeRoles } from "../middleware/auth.js";
@@ -15,6 +16,7 @@ const router = express.Router();
 
 // Public Routes
 router.get("/", getProducts);
+router.get("/search", searchProducts);
 router.get("/category/:category", getProductsByCategory);
 router.get("/:id", getProductById);
 

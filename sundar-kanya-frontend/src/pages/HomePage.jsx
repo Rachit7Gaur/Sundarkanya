@@ -1,6 +1,6 @@
-import Hero from "../components/Hero/Hero";
-import Categories from "../components/Categories/Categories";
-import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
+import HeroSlider from "../components/HeroSlider/HeroSlider";
+import Categories from "../components/Home/ShopByCategory";
+import FeaturedProducts from "../components/Home/FeaturedProducts/FeaturedProducts";
 import WhyChoose from "../components/WhyChoose/WhyChoose";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Newsletter from "../components/Newsletter/Newsletter";
@@ -8,7 +8,7 @@ import Newsletter from "../components/Newsletter/Newsletter";
 function HomePage() {
   return (
     <>
-      <Hero />
+      <HeroSlider />
       <Categories />
       <FeaturedProducts />
       <WhyChoose />

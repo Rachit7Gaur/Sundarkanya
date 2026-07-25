@@ -3,14 +3,21 @@ import features from "../../data/features";
 
 function WhyChoose() {
   return (
-    <section className="why-choose">
+    <section className="why-choose-section">
 
       <div className="section-heading">
-        <h2>Why Choose Sundarkanya?</h2>
+
+        <span className="section-tag">
+          Why Choose Us
+        </span>
+
+        <h2>Why Choose Sundar Kanya?</h2>
 
         <p>
-          Experience elegance, trust, and premium craftsmanship in every purchase.
+          Crafted with elegance, inspired by tradition, and designed
+          to make every woman feel timeless.
         </p>
+
       </div>
 
       <div className="feature-grid">
@@ -20,10 +27,12 @@ function WhyChoose() {
           const Icon = feature.icon;
 
           return (
+
             <div
               className="feature-card"
               key={feature.id}
             >
+
               <div className="feature-icon">
                 <Icon />
               </div>
@@ -31,8 +40,11 @@ function WhyChoose() {
               <h3>{feature.title}</h3>
 
               <p>{feature.description}</p>
+
             </div>
+
           );
+
         })}
 
       </div>

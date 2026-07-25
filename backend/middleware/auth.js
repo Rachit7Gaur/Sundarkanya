@@ -2,6 +2,8 @@ import jwt from "jsonwebtoken";
 import config from "../config/config.js";
 
 export const protect = (req,res,next)=>{
+  console.log("Authorization header:", req.headers.authorization);
+  
    const authHeader = req.headers.authorization;
 
    if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -17,6 +19,7 @@ export const protect = (req,res,next)=>{
       message: "No token found"
     })
   }
+  
 
   try{
     const decoded = jwt.verify(token , config.JWT_SECRET);

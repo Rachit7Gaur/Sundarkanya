@@ -5,93 +5,93 @@ import { forgotPassword } from "../../services/userService";
 import "./ForgotPassword.css";
 
 const ForgotPassword = () => {
-
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-
       setLoading(true);
 
       await forgotPassword({ email });
 
       toast.success(
-        "Password reset link sent to your email"
+        "Password reset link sent successfully."
       );
 
       setEmail("");
 
     } catch (error) {
-
       toast.error(
         error.response?.data?.message ||
         "Something went wrong"
       );
-
     } finally {
-
       setLoading(false);
-
     }
   };
 
-
   return (
+    <section className="sk-forgot-page">
 
-    <div className="forgot-page">
+      <div className="sk-forgot-card">
 
-      <div className="forgot-card">
-
+       <div className="sk-brand">
         <h1>
-          Forgot Password
+            Sundar<span>Kanya</span>
         </h1>
 
-        <p>
-          Enter your email to receive a password reset link.
-        </p>
+        <p>Luxury Jewellery Collection</p>
+    </div>
 
+        <h2>Forgot Password?</h2>
+
+        <p>
+          Enter your registered email address and we'll
+          send you a secure password reset link.
+        </p>
 
         <form onSubmit={handleSubmit}>
 
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e)=>
-              setEmail(e.target.value)
-            }
-            required
-          />
+          <div className="sk-forgot-input">
 
+            <label>Email Address</label>
 
-          <button type="submit" disabled={loading}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
+              required
+            />
 
-            {
-              loading
-              ? "Sending..."
-              : "Send Reset Link"
-            }
+          </div>
 
+          <button
+            type="submit"
+            className="sk-forgot-btn"
+            disabled={loading}
+          >
+            {loading
+              ? "Sending Link..."
+              : "Send Reset Link"}
           </button>
 
         </form>
 
+        <div className="sk-forgot-links">
 
-        <Link to="/login">
-          Back to Login
-        </Link>
+          <Link to="/login">
+            ← Back to Login
+          </Link>
 
+        </div>
 
       </div>
 
-    </div>
-
+    </section>
   );
 };
-
 
 export default ForgotPassword;

@@ -162,3 +162,19 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+
+export const searchProducts = async (req, res) => {
+  try {
+    const query = req.query.q || "";
+
+    const products = await Product.find({
+      name: { $regex: query, $options: "i" },
+    }).limit(6);
+
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};

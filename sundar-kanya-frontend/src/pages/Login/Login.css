@@ -1,132 +1,110 @@
-/* ==========================================
-   LOGIN PAGE
-========================================== */
-
-.login-page{
+.sk-login-page{
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:80px 20px;
-    background:linear-gradient(135deg,#fff7fb,#fdebf4);
+    padding:120px 20px 60px;
+    background:linear-gradient(135deg,#f8fafc,#eef2ff,#ffffff);
 }
 
-/* ==========================================
-   LOGIN CARD
-========================================== */
-
-.login-card{
+.sk-login-card{
     width:100%;
-    max-width:450px;
+    max-width:430px;
     background:#fff;
+    border-radius:24px;
     padding:40px;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(214,51,132,.15);
-    animation:fadeUp .5s ease;
-}
-
-.login-card h2{
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
     text-align:center;
-    color:#d63384;
-    font-size:32px;
-    margin-bottom:10px;
+    animation:skFade .5s ease;
 }
 
-.login-card p{
-    text-align:center;
-    color:#666;
-    margin-bottom:30px;
+.sk-login-logo{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:18px;
+    border:4px solid #fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
-/* ==========================================
-   ERROR
-========================================== */
+.sk-login-card h2{
+    margin:0;
+    font-size:2rem;
+    color:#111827;
+    font-weight:700;
+}
 
-.error-box{
-    background:#ffe5e5;
-    color:#d32f2f;
+.sk-login-card p{
+    margin-top:10px;
+    margin-bottom:25px;
+    color:#6b7280;
+    line-height:1.6;
+}
+
+.sk-error-box{
+    background:#fee2e2;
+    color:#dc2626;
     padding:12px;
     border-radius:10px;
     margin-bottom:20px;
-    text-align:center;
     font-size:14px;
 }
 
-/* ==========================================
-   FORM
-========================================== */
-
-.input-group{
+.sk-input-group{
     margin-bottom:20px;
+    text-align:left;
 }
 
-.input-group label{
+.sk-input-group label{
     display:block;
     margin-bottom:8px;
-    color:#444;
-    font-weight:500;
+    color:#374151;
+    font-weight:600;
 }
 
-.input-group input{
+.sk-input-group input{
     width:100%;
-    padding:14px 16px;
-    border:2px solid #f3d6e4;
-    border-radius:10px;
+    height:52px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    padding:0 15px;
     font-size:15px;
-    outline:none;
     transition:.3s;
+    outline:none;
 }
 
-.input-group input:focus{
-    border-color:#d63384;
-    box-shadow:0 0 10px rgba(214,51,132,.15);
+.sk-input-group input:focus{
+    border-color:#111827;
+    box-shadow:0 0 0 4px rgba(17,24,39,.08);
 }
 
-/* ==========================================
-   PASSWORD
-========================================== */
-
-.password-box{
+.sk-password-box{
     position:relative;
-    width:100%;
-    display:block;
 }
 
-.password-box input{
-    width:100%;
-    padding-right:55px;
-    box-sizing:border-box;
+.sk-password-box input{
+    padding-right:50px;
 }
 
-.eye-btn{
+.sk-eye-btn{
     position:absolute;
     top:50%;
     right:15px;
     transform:translateY(-50%);
-    border:none;
     background:none;
-    cursor:pointer;
-    color:#666;
-    font-size:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.eye-btn:hover{
-    color:#d63384;
-}
-
-/* ==========================================
-   LOGIN BUTTON
-========================================== */
-
-.login-btn{
-    width:100%;
-    padding:15px;
     border:none;
-    border-radius:10px;
-    background:#d63384;
+    cursor:pointer;
+    color:#6b7280;
+    font-size:20px;
+}
+
+.sk-login-btn{
+    width:100%;
+    height:54px;
+    border:none;
+    border-radius:12px;
+    background:#111827;
     color:#fff;
     font-size:16px;
     font-weight:600;
@@ -135,45 +113,59 @@
     margin-top:10px;
 }
 
-.login-btn:hover{
-    background:#b51f69;
+.sk-login-btn:hover{
+    background:#000;
     transform:translateY(-2px);
 }
 
-.login-btn:disabled{
+.sk-login-btn:disabled{
     opacity:.7;
     cursor:not-allowed;
 }
 
-/* ==========================================
-   LINKS
-========================================== */
-
-.login-links{
-    margin-top:25px;
-    text-align:center;
+.sk-divider{
+    display:flex;
+    align-items:center;
+    margin:28px 0;
 }
 
-.login-links a{
-    color:#d63384;
+.sk-divider::before,
+.sk-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#e5e7eb;
+}
+
+.sk-divider span{
+    padding:0 15px;
+    color:#9ca3af;
+    font-size:14px;
+}
+
+.sk-login-links{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.sk-login-links a{
     text-decoration:none;
-    font-weight:500;
+    color:#111827;
+    font-weight:600;
+    transition:.3s;
 }
 
-.login-links a:hover{
-    text-decoration:underline;
+.sk-login-links a:hover{
+    color:#2563eb;
 }
 
-.login-links p{
-    margin-top:15px;
-    color:#555;
+.sk-login-links p{
+    margin:0;
+    color:#6b7280;
 }
 
-/* ==========================================
-   ANIMATION
-========================================== */
-
-@keyframes fadeUp{
+@keyframes skFade{
 
     from{
         opacity:0;
@@ -187,42 +179,23 @@
 
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+@media(max-width:576px){
 
-@media(max-width:768px){
+    .sk-login-page{
+        padding:100px 15px 40px;
+    }
 
-.login-card{
-    padding:30px 25px;
-}
+    .sk-login-card{
+        padding:28px 22px;
+    }
 
-.login-card h2{
-    font-size:28px;
-}
+    .sk-login-logo{
+        width:75px;
+        height:75px;
+    }
 
-}
-
-@media(max-width:480px){
-
-.login-page{
-    padding:40px 15px;
-}
-
-.login-card{
-    padding:25px 20px;
-}
-
-.login-card h2{
-    font-size:24px;
-}
-
-.input-group input{
-    padding:13px;
-}
-
-.login-btn{
-    padding:14px;
-}
+    .sk-login-card h2{
+        font-size:1.7rem;
+    }
 
 }

@@ -1,52 +1,59 @@
 .sk-btn{
 
     width:100%;
-    padding:14px;
+
+    padding:18px;
 
     border:none;
-    border-radius:10px;
 
     cursor:pointer;
 
-    font-size:16px;
+    font-size:15px;
+
     font-weight:600;
 
-    transition:.3s;
+    letter-spacing:2px;
+
+    transition:.35s ease;
 
 }
 
+/* Gold Button */
+
 .primary{
 
-    background:#d63384;
-    color:white;
+    background:#B08D57;
+
+    color:#fff;
 
 }
 
 .primary:hover{
 
-    background:#bf2d73;
+    background:#222;
 
 }
 
+/* Black Button */
+
 .secondary{
 
-    background:white;
-    color:#d63384;
+    background:#222;
 
-    border:2px solid #d63384;
+    color:#fff;
 
 }
 
 .secondary:hover{
 
-    background:#d63384;
-    color:white;
+    background:#B08D57;
 
 }
 
 .sk-btn:disabled{
 
-    opacity:.6;
+    opacity:.5;
+
     cursor:not-allowed;
 
 }

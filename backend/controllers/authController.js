@@ -8,7 +8,15 @@ import sendEmail from "../config/sendEmail.js";
 // Register new user
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password} = req.body;
+    const {
+      name,
+      email,
+      password,
+      phone,
+      gender,
+      dateOfBirth,
+    } = req.body;
+
 
     if (!name || !email || !password) {
       return res.status(400).json({
@@ -51,6 +59,9 @@ export const registerUser = async (req, res) => {
       name : trimmedName,
       email : trimmedEmail,
       password: hashedPassword,
+      phone,
+      gender,
+      dateOfBirth,
       role: "customer"
     });
 
@@ -173,6 +184,8 @@ export const updateSettings = async (req, res) => {
       name,
       email,
       phone,
+      gender,
+      dateOfBirth,
       address,
     } = req.body;
 
@@ -187,6 +200,9 @@ export const updateSettings = async (req, res) => {
     if (name) user.name = name;
     if (email) user.email = email.toLowerCase();
     if (phone !== undefined) user.phone = phone;
+    if (gender !== undefined) user.gender = gender;
+    if (dateOfBirth !== undefined)
+      user.dateOfBirth = dateOfBirth;
 
     if (address) {
       user.address = {
@@ -199,19 +215,16 @@ export const updateSettings = async (req, res) => {
 
     res.json({
       message: "Profile updated successfully",
-      user: {
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
-        address: user.address,
-      },
+      user,
     });
 
   } catch (error) {
+
     res.status(500).json({
       message: "Server Error",
       error: error.message,
     });
+
   }
 };
 

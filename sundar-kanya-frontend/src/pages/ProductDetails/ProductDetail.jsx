@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
@@ -14,12 +14,21 @@ import Loader from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
 import ProductGallery from "../../components/ProductDetails/ProductGallery";
 import QuantitySelector from "../../components/ProductDetails/QuantitySelector";
+import ProductCard from "../../components/Product/ProductCard";
+import ProductInfo from "../../components/Product/ProductInfo";
+import ReviewSection from "../../components/Product/ReviewSection";
+import RelatedProducts from "../../components/Product/RelatedProducts";
 
-import { getProductById } from "../../services/productService";
-import { addToCart } from "../../services/cartService";
+import {
+  getProductById,
+  getProducts,
+} from "../../services/productService";
+import { CartContext } from "../../context/CartContext";
 
 import formatCurrency from "../../utils/formatCurrency";
 import stockStatus from "../../utils/stockStatus";
+
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -35,25 +44,49 @@ const ProductDetails = () => {
 
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [activeTab, setActiveTab] = useState("description");
+
+  const {addToCart} = useContext(CartContext);
 
   useEffect(() => {
   fetchProduct();
   fetchReviews();
 }, [id]);
 
-  const fetchProduct = async () => {
-    try {
-      setLoading(true);
+const fetchProduct = async () => {
 
-      const data = await getProductById(id);
+  try {
 
-      setProduct(data);
-    } catch (error) {
-      toast.error(error.message || "Unable to load product");
-    } finally {
-      setLoading(false);
-    }
-  };
+    setLoading(true);
+
+    const data = await getProductById(id);
+
+    setProduct(data);
+
+    const allProducts = await getProducts();
+
+    const related = allProducts
+      .filter(
+        (item) =>
+          item.category === data.category &&
+          item._id !== data._id
+      )
+      .slice(0, 4);
+
+    setRelatedProducts(related);
+
+  } catch (error) {
+
+    toast.error(error.message || "Unable to load product");
+
+  } finally {
+
+    setLoading(false);
+
+  }
+
+};
 
   const fetchReviews = async () => {
   try {
@@ -122,151 +155,87 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details-page">
+    <div className="pd-page">
 
-      <div className="container">
+    {/* Breadcrumb */}
 
-        <div className="row">
+    <section className="pd-breadcrumb">
 
-          <div className="col-lg-6">
+      <span>Home</span>
 
-          <ProductGallery
-            images={product.images}
-            productId={product._id}
-          />
+      <span>/</span>
 
-          </div>
+      <span>{product.category}</span>
 
-          <div className="col-lg-6">
+      <span>/</span>
 
-            <span className="category">
-              {product.category}
-            </span>
+      <strong>{product.name}</strong>
 
-            <h1>{product.name}</h1>
+    </section>
 
-            <div className="rating-summary">
-            ⭐ {Number(averageRating).toFixed(1)} / 5
+    {/* Product */}
 
-            <span>
-              ({totalReviews} Reviews)
-            </span>
-          </div>
+    <section className="pd-container">
 
-            <h2 className="price">
-              {formatCurrency(product.price)}
-            </h2>
+      {/* Gallery */}
 
-            <p
-              style={{
-                color: status.color,
-                fontWeight: "600",
-              }}
-            >
-              {status.text}
-            </p>
+      <div className="pd-gallery">
 
-            <p className="description">
-              {product.description}
-            </p>
-
-            <QuantitySelector
-              quantity={quantity}
-              setQuantity={setQuantity}
-              maxStock={product.stock}
-            />
-
-            <Button onClick={handleAddToCart}>
-              Add To Cart
-            </Button>
-
-            <div style={{ marginTop: "15px" }}>
-
-              <Button
-                variant="secondary"
-                onClick={handleBuyNow}
-              >
-                Buy Now
-              </Button>
-
-            </div>
-
-          </div>
-
-        </div>
+        <ProductGallery
+          images={product.images}
+          productId={product._id}
+        />
 
       </div>
-      <div className="reviews-section">
 
-  <h2>Customer Reviews</h2>
+      {/* Content */}
 
-  {reviews.length === 0 ? (
-    <p>No reviews yet.</p>
-  ) : (
-    reviews.map((review) => (
-      <div
-        className="review-card"
-        key={review._id}
-      >
-        <h4>{review.user?.name || "Anonymous User"}</h4>
+      <div className="pd-content">
 
-        <p>{"⭐".repeat(review.rating)}</p>
+       <ProductInfo
+          product={product}
+          averageRating={averageRating}
+          totalReviews={totalReviews}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          handleAddToCart={handleAddToCart}
+          handleBuyNow={handleBuyNow}
+        />
 
-        <p>{review.comment}</p>
 
-        <small>
-          {new Date(
-            review.createdAt
-          ).toLocaleDateString()}
-        </small>
       </div>
-    ))
-  )}
 
-  {!user && (
-  <p className="login-review-msg">
-    Please login to write a review.
-  </p>
-)}
+    </section>
 
-  {user && (
-    <form
-      className="review-form"
-      onSubmit={handleReviewSubmit}
-    >
-      <h3>Write a Review</h3>
+    {/* ================= Reviews ================= */}
 
-      <select
-        value={rating}
-        onChange={(e) =>
-          setRating(Number(e.target.value))
-        }
-      >
-        <option value={5}>★★★★★</option>
-        <option value={4}>★★★★</option>
-        <option value={3}>★★★</option>
-        <option value={2}>★★</option>
-        <option value={1}>★</option>
-      </select>
-
-      <textarea
-        placeholder="Write your review..."
-        value={comment}
-        onChange={(e) =>
-          setComment(e.target.value)
-        }
-        required
+        <ReviewSection
+        user={user}
+        reviews={reviews}
+        totalReviews={totalReviews}
+        averageRating={averageRating}
+        rating={rating}
+        setRating={setRating}
+        comment={comment}
+        setComment={setComment}
+        handleReviewSubmit={handleReviewSubmit}
       />
 
-      <button type="submit">
-        Submit Review
-      </button>
-    </form>
-  )}
+{/* =========================
+    RELATED PRODUCTS
+========================= */}
+
+<RelatedProducts
+    relatedProducts={relatedProducts}
+/>
 
 </div>
+</div>
 
-    </div>
-  );
+);
+
 };
 
 export default ProductDetails;

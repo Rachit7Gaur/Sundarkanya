@@ -1,127 +1,1025 @@
+/*==================================================
+PRODUCT DETAILS
+==================================================*/
 .product-details-page{
-    padding:60px 0;
+    margin-top:170px;
+    min-height:100vh;
+    background:#faf7f2;
+}
+@media (max-width:992px){
+    .product-details-page{
+        margin-top:128px;
+    }
 }
 
-.category{
-    display:inline-block;
-    background:#ffe6f0;
-    color:#d63384;
-    padding:6px 15px;
-    border-radius:20px;
+@media (max-width:768px){
+    .product-details-page{
+        margin-top:113px;
+    }
+}
+.pd-page{
+
+    width:min(92%,1450px);
+
+    margin:40px auto 100px;
+
+}
+
+/*==================================================
+BREADCRUMB
+==================================================*/
+
+.pd-breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#777;
+
     font-size:14px;
+
+    margin-bottom:35px;
+
+}
+
+.pd-breadcrumb strong{
+
+    color:#222;
+
+    font-weight:600;
+
+}
+
+/*==================================================
+MAIN SECTION
+==================================================*/
+
+.pd-container{
+
+    display:grid;
+
+    grid-template-columns:1.05fr .95fr;
+
+    gap:70px;
+
+    align-items:start;
+
+}
+
+/*==================================================
+LEFT
+==================================================*/
+
+.pd-gallery{
+
+    position:sticky;
+
+    top:100px;
+
+}
+
+/*==================================================
+RIGHT
+==================================================*/
+
+.pd-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/*==================================================
+CATEGORY
+==================================================*/
+
+.pd-category{
+
+    color:#B08D57;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+}
+
+/*==================================================
+TITLE
+==================================================*/
+
+.pd-title{
+
+    font-size:42px;
+
+    font-weight:600;
+
+    color:#222;
+
+    line-height:1.25;
+
+    margin-bottom:18px;
+
+}
+
+/*==================================================
+RATING
+==================================================*/
+
+.pd-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:16px;
+
+    color:#444;
+
+    margin-bottom:25px;
+
+}
+
+.pd-rating span{
+
+    color:#888;
+
+}
+
+/*==================================================
+PRICE
+==================================================*/
+
+.pd-price-box{
+
+    margin-bottom:30px;
+
+}
+
+.pd-price{
+
+    font-size:42px;
+
+    color:#111;
+
+    margin-bottom:8px;
+
+}
+
+.pd-tax{
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+/*==================================================
+HIGHLIGHTS
+==================================================*/
+
+.pd-highlights{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+}
+
+.pd-highlight{
+
+    background:#fff;
+
+    border:1px solid #eee;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.pd-highlight:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.pd-highlight span{
+
+    display:block;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.pd-highlight p{
+
+    color:#555;
+
+    font-size:14px;
+
+}
+
+/*==================================================
+STOCK
+==================================================*/
+
+.pd-stock{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:35px;
+
+}
+
+/*==================================================
+QUANTITY
+==================================================*/
+
+.pd-quantity{
+
+    margin-top:35px;
+
+}
+
+.pd-quantity h4{
+
+    margin-bottom:15px;
+
+    color:#222;
+
+}
+
+/*==================================================
+BUTTONS
+==================================================*/
+
+.pd-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:35px;
+
+    margin-bottom:45px;
+
+}
+
+.pd-cart-btn{
+
+    flex:1;
+
+}
+
+.pd-buy-btn{
+
+    flex:1;
+
+}
+
+/*==================================================
+PRODUCT TABS
+==================================================*/
+
+.pd-tabs{
+
+    margin-top:40px;
+
+}
+
+.pd-tab-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.pd-tab-buttons button{
+
+    padding:12px 24px;
+
+    border:none;
+
+    background:#f5f5f5;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    color:#555;
+
+}
+
+.pd-tab-buttons button:hover{
+
+    background:#B08D57;
+
+    color:#fff;
+
+}
+
+.pd-tab-buttons button.active{
+
+    background:#B08D57;
+
+    color:#fff;
+
+}
+
+.pd-tab-content{
+
+    background:#fff;
+
+    border:1px solid #eee;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    color:#555;
+
+    line-height:1.9;
+
+}
+
+.pd-detail-list p{
+
+    margin-bottom:14px;
+
+}
+
+.pd-care-list{
+
+    padding-left:20px;
+
+}
+
+.pd-care-list li{
+
+    margin-bottom:12px;
+
+}
+
+/*==================================================
+SERVICES
+==================================================*/
+
+.pd-services{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:45px;
+
+}
+
+.pd-service{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    background:#fff;
+
+    border:1px solid #eee;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    transition:.3s;
+
+}
+
+.pd-service:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.pd-service>span{
+
+    font-size:30px;
+
+}
+
+.pd-service h4{
+
+    font-size:16px;
+
+    color:#222;
+
+    margin-bottom:5px;
+
+}
+
+.pd-service p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/*==================================================
+REVIEW SECTION
+==================================================*/
+
+.pd-review-section{
+
+    margin-top:90px;
+
+}
+
+.pd-review-header{
+
+    margin-bottom:40px;
+
+}
+
+.pd-review-header h2{
+
+    font-size:36px;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+}
+
+.pd-review-header p{
+
+    color:#888;
+
+}
+
+.pd-review-grid{
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+.pd-review-card{
+
+    background:#fff;
+
+    border:1px solid #eee;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    transition:.3s;
+
+}
+
+.pd-review-card:hover{
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.pd-review-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.pd-review-top h4{
+
+    color:#222;
+
+    margin-bottom:5px;
+
+}
+
+.pd-review-top span{
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+.pd-review-stars{
+
+    color:#f5b301;
+
+    font-size:18px;
+
+}
+
+.pd-review-card p{
+
+    line-height:1.8;
+
+    color:#555;
+
+}
+
+/*==================================================
+EMPTY REVIEW
+==================================================*/
+
+.pd-empty-review{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    border:1px solid #eee;
+
+}
+
+.pd-empty-icon{
+
+    font-size:60px;
+
     margin-bottom:20px;
-    text-transform:capitalize;
+
 }
 
-.price{
-    color:#d63384;
-    margin:20px 0;
-    font-weight:700;
+.pd-empty-review h3{
+
+    color:#222;
+
+    margin-bottom:10px;
+
 }
 
-.description{
+.pd-empty-review p{
+
+    color:#777;
+
+}
+
+/*==================================================
+LOGIN MESSAGE
+==================================================*/
+
+.pd-login-review{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    background:#fff8e8;
+
+    color:#8a6b2f;
+
+    border:1px solid #f2dca4;
+
+}
+
+/*==================================================
+REVIEW FORM
+==================================================*/
+
+.pd-review-form{
+
+    margin-top:50px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    border:1px solid #eee;
+
+    padding:40px;
+
+}
+
+.pd-review-form h2{
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+    color:#222;
+
+}
+
+.pd-form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:25px;
+
+}
+
+.pd-form-group label{
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+.pd-form-group select,
+
+.pd-form-group textarea{
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.pd-form-group textarea{
+
+    min-height:150px;
+
+    resize:vertical;
+
+}
+
+.pd-form-group select:focus,
+
+.pd-form-group textarea:focus{
+
+    border-color:#B08D57;
+
+}
+
+.pd-submit-review{
+
+    width:220px;
+
+}
+
+/*==================================================
+RELATED PRODUCTS
+==================================================*/
+
+/* ==========================
+   RELATED PRODUCTS
+========================== */
+
+.pd-related{
+    margin-top:100px;
+    padding:70px 0;
+}
+
+.pd-related-heading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.pd-related-heading span{
+    color:#B08D57;
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+.pd-related-heading h2{
+    margin:12px 0;
+    font-family:"Cormorant Garamond", serif;
+    font-size:42px;
+    color:#222;
+}
+
+.pd-related-heading p{
+    max-width:600px;
+    margin:auto;
     color:#666;
     line-height:1.8;
-    margin:20px 0;
 }
 
-/* ================= Reviews ================= */
+/* Grid */
 
-.reviews-section {
-  margin-top: 60px;
-  padding: 30px;
-  border-top: 1px solid #eee;
+.pd-related-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,320px));
+    justify-content:center;
+    gap:30px;
 }
 
-.reviews-section h2 {
-  margin-bottom: 25px;
-  font-size: 28px;
-  color: #222;
+/* Empty */
+
+.pd-related-empty{
+    grid-column:1/-1;
+    text-align:center;
+    color:#777;
+    padding:50px 20px;
+    font-size:18px;
 }
 
-.rating-summary {
-  margin: 10px 0 20px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #f5a623;
+/* Tablet */
+
+@media(max-width:768px){
+
+.pd-related{
+    margin-top:70px;
+    padding:50px 0;
 }
 
-.rating-summary span {
-  color: #666;
-  margin-left: 8px;
-  font-size: 15px;
+.pd-related-heading h2{
+    font-size:34px;
 }
 
-.review-card {
-  background: #fff;
-  border: 1px solid #ececec;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.review-card h4 {
-  margin-bottom: 8px;
-  color: #222;
+/* Mobile */
+
+@media(max-width:480px){
+
+.pd-related-heading h2{
+    font-size:28px;
 }
 
-.review-card p {
-  margin: 6px 0;
-  line-height: 1.6;
+.pd-related-grid{
+    grid-template-columns:1fr;
+    justify-items:center;
 }
 
-.review-card small {
-  color: #888;
 }
 
-.review-form {
-  margin-top: 40px;
-  background: #fafafa;
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid #eee;
+/*==================================================
+SMOOTH ANIMATIONS
+==================================================*/
+
+.pd-container{
+
+    animation:pdFade .6s ease;
+
 }
 
-.review-form h3 {
-  margin-bottom: 20px;
+.pd-review-card{
+
+    animation:pdFadeUp .6s ease;
+
 }
 
-.review-form select,
-.review-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 15px;
+.pd-related .pc-card{
+
+    animation:pdFadeUp .6s ease;
+
 }
 
-.review-form textarea {
-  min-height: 120px;
-  resize: vertical;
+@keyframes pdFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
 }
 
-.review-form button {
-  background: #d63384;
-  color: white;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.3s;
+@keyframes pdFadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
 }
 
-.review-form button:hover {
-  background: #b02a6f;
+/*==================================================
+IMAGE HOVER
+==================================================*/
+
+.pd-gallery img{
+
+    transition:.4s;
+
 }
 
-.login-review-msg {
-  margin-top: 25px;
-  padding: 15px;
-  background: #fff3cd;
-  color: #856404;
-  border-radius: 8px;
-  border: 1px solid #ffe69c;
+.pd-gallery:hover img{
+
+    transform:scale(1.03);
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:1100px){
+
+    .pd-container{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+    .pd-gallery{
+
+        position:static;
+
+    }
+
+    .pd-highlights{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .pd-page{
+
+        width:94%;
+
+    }
+
+    .pd-title{
+
+        font-size:32px;
+
+    }
+
+    .pd-price{
+
+        font-size:34px;
+
+    }
+
+    .pd-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .pd-services{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pd-highlights{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pd-tab-buttons{
+
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:8px;
+
+    }
+
+    .pd-tab-buttons::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .pd-review-form{
+
+        padding:25px;
+
+    }
+
+    .pd-review-header h2{
+
+        font-size:28px;
+
+    }
+
+    .pd-related-heading h2{
+
+        font-size:30px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .pd-title{
+
+        font-size:28px;
+
+    }
+
+    .pd-price{
+
+        font-size:30px;
+
+    }
+
+    .pd-tab-content{
+
+        padding:20px;
+
+    }
+
+    .pd-service{
+
+        padding:15px;
+
+    }
+
+    .pd-review-card{
+
+        padding:20px;
+
+    }
+
+    .pd-review-top{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
 }
