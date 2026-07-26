@@ -3,11 +3,14 @@ import api from "./api";
 
 // Get all products
 export const getProducts = async () => {
+  console.log("Calling API...");
 
   const response = await api.get("/products");
 
-  return response.data;
+  console.log("Axios response:", response);
+  console.log("Response data:", response.data);
 
+  return response.data;
 };
 
 

@@ -20,14 +20,26 @@ h1,h2,h3,h4,h5{
   font-family:'Cormorant Garamond',serif;
 }
 
-.main-content{
+.app{
     min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.main-content{
+    flex:1;
+    min-height:100vh;
+    padding-top:170px;
+}
+
+.home-content{
+    padding-top:0;
 }
 
 .page-wrapper{
     width:min(92%,1400px);
     margin:0 auto;
-    padding-top:190px;
+    padding-top:0;
     padding-bottom:80px;
 }
 

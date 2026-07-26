@@ -4,19 +4,34 @@ import ProductCard from "../../Product/ProductCard";
 import "./FeaturedProducts.css";
 
 function FeaturedCollection() {
+  console.log("FeaturedCollection Rendered");
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getProducts();
-        setProducts(data.slice(0, 8));
-      } catch (error) {
-        console.log(error);
-      }
+  const data = await getProducts();
+
+  console.log("Complete response:", data);
+  console.log("Type:", typeof data);
+  console.log("Is Array:", Array.isArray(data));
+  console.log("Products property:", data?.products);
+
+  if (Array.isArray(data)) {
+    setProducts(data.slice(0, 8));
+  } else if (Array.isArray(data?.products)) {
+    setProducts(data.products.slice(0, 8));
+  } else {
+    setProducts([]);
+  }
+} catch (error) {
+  console.error(error);
+}
     };
 
     fetchProducts();
+
   }, []);
 
   return (

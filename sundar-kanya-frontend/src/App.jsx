@@ -51,12 +51,22 @@ function App() {
 
   const isAdminRoute =
     location.pathname.startsWith("/admin");
+
+    const isHomePage = location.pathname === "/";
  return (
   <div className="app">
 
     {!isAdminRoute && <Navbar />}
 
-    <main className={isAdminRoute ? "" : "main-content"}>
+    <main
+  className={
+    isAdminRoute
+      ? ""
+      : isHomePage
+      ? "main-content home-content"
+      : "main-content"
+  }
+>
       <Routes>
 
         {/* Public Routes */}
