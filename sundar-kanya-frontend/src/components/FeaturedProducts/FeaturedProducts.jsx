@@ -6,6 +6,12 @@ import ProductCard from "./ProductCard";
 import Loader from "../Loader/Loader";
 import { getProducts } from "../../services/productService";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
 function FeaturedProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +46,30 @@ function FeaturedProducts() {
         <p>Discover our most loved jewellery.</p>
       </div>
 
-      <div className="products-grid">
+      <Swiper
+  modules={[Pagination]}
+  pagination={{ clickable: true }}
+  spaceBetween={20}
+  slidesPerView={1.2}
+  centeredSlides={true}
+  breakpoints={{
+    768: {
+      slidesPerView: 2,
+      centeredSlides: false,
+    },
+    992: {
+      slidesPerView: 4,
+      centeredSlides: false,
+    },
+  }}
+  className="featured-swiper"
+>
+  {products.map((product) => (
+    <SwiperSlide key={product._id}>
+      <ProductCard product={product} />
+    </SwiperSlide>
+  ))}
+
         {products.length > 0 ? (
           products.map((product) => (
             <ProductCard
@@ -54,8 +83,8 @@ function FeaturedProducts() {
             <p>Products added by the admin will appear here.</p>
           </div>
         )}
-      </div>
-
+      
+  </Swiper>
     </section>
   );
 }

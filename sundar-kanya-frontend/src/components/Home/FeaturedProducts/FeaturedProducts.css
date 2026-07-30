@@ -1,26 +1,157 @@
+/*==========================================
+        FEATURED SECTION
+==========================================*/
+
 .featured-section{
     padding:100px 7%;
     background:#fff;
 }
 
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title p{
+    color:#C8A96A;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:3px;
+    margin-bottom:12px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:44px;
+    color:#111;
+    font-weight:600;
+}
+
+/*==========================================
+            DESKTOP GRID
+==========================================*/
+
 .featured-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
 }
+
+.featured-mobile-slider{
+    display:none;
+}
+
+/*==========================================
+            MOBILE SWIPER
+==========================================*/
+
+.featured-swiper{
+    padding:0 8px 55px;
+}
+
+.featured-swiper .swiper-slide{
+    display:flex;
+    justify-content:center;
+    height:auto;
+}
+
+.featured-swiper .swiper-pagination{
+    position:relative;
+    margin-top:28px;
+    bottom:0 !important;
+}
+
+.featured-swiper .swiper-pagination-bullet{
+    width:10px;
+    height:10px;
+    background:#C8A96A;
+    opacity:.35;
+}
+
+.featured-swiper .swiper-pagination-bullet-active{
+    opacity:1;
+}
+
+/*==========================================
+            TABLET
+==========================================*/
 
 @media(max-width:992px){
 
+.featured-section{
+    padding:80px 5%;
+}
+
+.section-title{
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:36px;
+}
+
 .featured-grid{
     grid-template-columns:repeat(2,1fr);
+    gap:24px;
 }
 
 }
+
+/*==========================================
+            MOBILE
+==========================================*/
 
 @media(max-width:768px){
 
+.featured-section{
+    padding:60px 0;
+}
+
+.section-title{
+    margin-bottom:35px;
+    padding:0 18px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title p{
+    font-size:12px;
+    letter-spacing:2px;
+}
+
 .featured-grid{
-    grid-template-columns:1fr;
+    display:none;
+}
+
+.featured-mobile-slider{
+    display:block;
+}
+
+.featured-swiper{
+    padding:0 18px 55px;
+}
+
+}
+
+/*==========================================
+        VERY SMALL DEVICES
+==========================================*/
+
+@media(max-width:480px){
+
+.featured-section{
+    padding:50px 0;
+}
+
+.section-title h2{
+    font-size:28px;
+}
+
+.featured-swiper{
+    padding:0 15px 50px;
 }
 
 }

@@ -11,6 +11,9 @@ import {
 } from "../../services/productService";
 
 import ProductCard from "../../components/Product/ProductCard";
+import MobileProductCard from "../../components/MobileProduct/MobileProductCard";
+import MobileSort from "../../components/MobileSort/MobileSort";
+import MobileFilter from "../../components/MobileFilter/MobileFilter";
 import "./Product.css";
 
 import earringsBanner from "../../assets/category-banners/earrings-banner.png";
@@ -33,6 +36,11 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState("");
+
+  const [showFilter, setShowFilter] = useState(false);
+  const [showSort, setShowSort] = useState(false);
+
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     fetchProducts();
@@ -167,6 +175,25 @@ const Products = () => {
 
 </section>
 
+{/* Mobile Toolbar */}
+<div className="mobile-toolbar">
+
+  <button
+    className="mobile-toolbar-btn"
+    onClick={() => setShowFilter(true)}
+  >
+    ⚙ Filter
+  </button>
+
+  <button
+    className="mobile-toolbar-btn"
+    onClick={() => setShowSort(true)}
+  >
+    ⇅ Sort
+  </button>
+
+</div>
+
     {/* Toolbar */}
 
     <section className="cp-toolbar">
@@ -245,16 +272,35 @@ const Products = () => {
 
         filteredProducts.map((product) => (
 
-          <ProductCard
-            key={product._id}
-            product={product}
-          />
+  <div key={product._id}>
+    <div className="desktop-product-card">
+      <ProductCard product={product} />
+    </div>
 
-        ))
+    <div className="mobile-product-card">
+      <MobileProductCard product={product} />
+    </div>
+  </div>
+
+))
 
       )}
 
     </section>
+
+    <MobileSort
+    showSort={showSort}
+    setShowSort={setShowSort}
+    sort={sort}
+    setSort={setSort}
+/>
+
+<MobileFilter
+    showFilter={showFilter}
+    setShowFilter={setShowFilter}
+    selectedCategory={selectedCategory}
+    setSelectedCategory={setSelectedCategory}
+/>
 
   </div>
 );

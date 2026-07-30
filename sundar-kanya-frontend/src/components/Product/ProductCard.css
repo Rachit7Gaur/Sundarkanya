@@ -14,7 +14,11 @@
     box-shadow: 0 8px 25px rgba(0,0,0,.08);
     height: 100%;
 }
-
+.pc-card{
+    width:100%;
+    max-width:340px;
+    min-height:560px;
+}
 .pc-card:hover{
     transform: translateY(-8px);
     box-shadow: 0 18px 45px rgba(176,141,87,.18);
@@ -185,7 +189,7 @@
 @media(max-width:480px){
 
 .pc-image{
-    height: 220px;
+    height: 260px;
 }
 
 .pc-content{
@@ -201,3 +205,4 @@
 }
 
 }
+

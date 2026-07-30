@@ -1,57 +1,86 @@
 import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
 import { getProducts } from "../../../services/productService";
 import ProductCard from "../../Product/ProductCard";
+
 import "./FeaturedProducts.css";
 
 function FeaturedCollection() {
-  console.log("FeaturedCollection Rendered");
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-  const data = await getProducts();
+        const data = await getProducts();
 
-  console.log("Complete response:", data);
-  console.log("Type:", typeof data);
-  console.log("Is Array:", Array.isArray(data));
-  console.log("Products property:", data?.products);
-
-  if (Array.isArray(data)) {
-    setProducts(data.slice(0, 8));
-  } else if (Array.isArray(data?.products)) {
-    setProducts(data.products.slice(0, 8));
-  } else {
-    setProducts([]);
-  }
-} catch (error) {
-  console.error(error);
-}
+        if (Array.isArray(data)) {
+          setProducts(data.slice(0, 8));
+        } else if (Array.isArray(data?.products)) {
+          setProducts(data.products.slice(0, 8));
+        } else {
+          setProducts([]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch featured products:", error);
+      }
     };
 
     fetchProducts();
-
   }, []);
 
   return (
-    <section className="featured-section">
+   <section className="featured-section">
 
-      <div className="section-title">
-        <p>HANDPICKED FOR YOU</p>
-        <h2>Featured Collection</h2>
-      </div>
+  <div className="section-title">
+    <p>HANDPICKED FOR YOU</p>
+    <h2>Featured Collection</h2>
+  </div>
 
-      <div className="featured-grid">
-        {products.map((product) => (
-          <ProductCard
-            key={product._id}
-            product={product}
-          />
-        ))}
-      </div>
+  {/* Desktop + Tablet Grid */}
+  <div className="featured-grid">
+    {products.map((product) => (
+      <ProductCard
+        key={product._id}
+        product={product}
+      />
+    ))}
+  </div>
 
-    </section>
+  {/* Mobile Slider */}
+  <div className="featured-mobile-slider">
+
+    <Swiper
+      modules={[Pagination, Autoplay]}
+      slidesPerView={1.15}
+      centeredSlides={true}
+      spaceBetween={18}
+      loop={products.length > 4}
+      autoplay={{
+        delay:3000,
+        disableOnInteraction:false
+      }}
+      pagination={{
+        clickable:true
+      }}
+      className="featured-swiper"
+    >
+
+      {products.map((product)=>(
+        <SwiperSlide key={product._id}>
+          <ProductCard product={product}/>
+        </SwiperSlide>
+      ))}
+
+    </Swiper>
+
+  </div>
+
+</section>
   );
 }
 
