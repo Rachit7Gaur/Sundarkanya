@@ -1,0 +1,71 @@
+.accordion-wrapper{
+
+    margin-top:20px;
+
+}
+
+.accordion-card{
+
+    background:#fff;
+
+    border-radius:16px;
+
+    margin-bottom:14px;
+
+    overflow:hidden;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+}
+
+.accordion-header{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.accordion-body{
+
+    padding:0 18px 18px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+.spec-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.spec-row:last-child{
+
+    border:none;
+
+}

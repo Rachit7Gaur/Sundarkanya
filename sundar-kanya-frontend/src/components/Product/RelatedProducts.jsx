@@ -1,51 +1,36 @@
-import ProductCard from "./ProductCard";
+import ProductCard from "../Product/ProductCard";
+import RelatedProductCard from "../RelatedProductCard/RelatedProductCard";
+import "./RelatedProducts.css";
 
 function RelatedProducts({ relatedProducts }) {
+
+  if (relatedProducts.length === 0) return null;
+
   return (
-    <section className="pd-related">
 
-      <div className="pd-related-heading">
+    <section className="related-section">
 
-        <span>
-          YOU MAY ALSO LIKE
-        </span>
+      <h2 className="related-title">
+        You May Also Like
+      </h2>
 
-        <h2>
-          Similar Jewellery
-        </h2>
+      <div className="related-products">
 
-        <p>
-          Carefully selected jewellery that perfectly
-          matches your style.
-        </p>
+        {relatedProducts.map((product) => (
 
-      </div>
+          <RelatedProductCard
+              key={product._id}
+              product={product}
+          />
 
-      <div className="pd-related-grid">
-
-        {relatedProducts.length === 0 ? (
-
-          <div className="pd-related-empty">
-            No Related Products
-          </div>
-
-        ) : (
-
-          relatedProducts.map((item) => (
-
-            <ProductCard
-              key={item._id}
-              product={item}
-            />
-
-          ))
-
-        )}
+        ))}
 
       </div>
 
     </section>
+
   );
+
 }
 
 export default RelatedProducts;

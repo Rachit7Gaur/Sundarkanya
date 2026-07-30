@@ -1,0 +1,347 @@
+/* ===========================
+      MOBILE PRODUCT GALLERY
+=========================== */
+
+.mpg-container{
+
+    width:100%;
+
+    padding:18px;
+
+    background:#fff;
+
+}
+
+.mpg-main-image{
+    position: relative;   /* ADD THIS */
+    width:100%;
+    height:420px;
+    border-radius:22px;
+    overflow:hidden;
+    background:#f7f7f7;
+}
+.mpg-main-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* ===========================
+        DOTS
+=========================== */
+
+.mpg-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin:18px 0;
+
+}
+
+.mpg-dot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#d9d9d9;
+
+    transition:.3s;
+
+}
+
+.mpg-dot.active{
+
+    width:24px;
+
+    border-radius:20px;
+
+    background:#B08D57;
+
+}
+
+/* ===========================
+      THUMBNAILS
+=========================== */
+
+.mpg-thumbnails{
+
+    display:flex;
+
+    gap:12px;
+
+    overflow-x:auto;
+
+    padding-bottom:8px;
+
+}
+
+.mpg-thumbnails::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.mpg-thumb{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    border:2px solid transparent;
+
+    flex-shrink:0;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.mpg-thumb.active{
+
+    border-color:#B08D57;
+
+}
+
+.mpg-thumb img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* ===========================
+      IMAGE VIEWER
+=========================== */
+
+.mpg-viewer{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.mpg-viewer-image{
+
+    width:90%;
+
+    max-height:85vh;
+
+    object-fit:contain;
+
+}
+
+.mpg-close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+/* ===========================
+      VIEWER NAVIGATION
+=========================== */
+
+.mpg-nav{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.9);
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+.mpg-prev{
+
+    left:18px;
+
+}
+
+.mpg-next{
+
+    right:18px;
+
+}
+
+.mpg-counter{
+
+    position:absolute;
+
+    top:22px;
+
+    left:22px;
+
+    background:rgba(255,255,255,.9);
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+
+/* ===========================
+      WISHLIST BUTTON
+=========================== */
+
+/* ===========================
+      WISHLIST ANIMATION
+=========================== */
+/* ===========================
+      ACTION BUTTONS
+=========================== */
+
+.mpg-actions{
+    position:absolute;
+    top:16px;
+    right:16px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:12px;
+    z-index:20;
+}
+
+.mpg-share,
+.mpg-wishlist{
+    width:46px;
+    height:46px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    color:#333;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.15);
+
+    transition:.3s;
+}
+
+.mpg-share svg,
+.mpg-wishlist svg{
+    font-size:18px;
+}
+
+.mpg-share:hover,
+.mpg-wishlist:hover{
+    transform:translateY(-2px) scale(1.08);
+}
+
+.mpg-share:active,
+.mpg-wishlist:active{
+
+    transform:scale(.95);
+
+}
+
+.mpg-wishlist.liked{
+
+    color:#d32f2f;
+
+    animation:wishlistPop .35s ease;
+
+}
+
+@keyframes wishlistPop{
+
+    0%{
+
+        transform:scale(.8);
+
+    }
+
+    50%{
+
+        transform:scale(1.25);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}

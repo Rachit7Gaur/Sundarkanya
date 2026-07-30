@@ -16,7 +16,7 @@ import ProductGallery from "../../components/ProductDetails/ProductGallery";
 import QuantitySelector from "../../components/ProductDetails/QuantitySelector";
 import ProductCard from "../../components/Product/ProductCard";
 import ProductInfo from "../../components/Product/ProductInfo";
-import ReviewSection from "../../components/Product/ReviewSection";
+import ReviewSection from "../../components/Product/ReviewSection/ReviewSection";
 import RelatedProducts from "../../components/Product/RelatedProducts";
 
 import {
@@ -28,7 +28,8 @@ import { CartContext } from "../../context/CartContext";
 import formatCurrency from "../../utils/formatCurrency";
 import stockStatus from "../../utils/stockStatus";
 
-
+import DesktopProductDetails from "./desktop/DesktopProductDetails";
+import MobileProductDetails from "./mobile/MobileProductDetails";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -46,6 +47,19 @@ const ProductDetails = () => {
   const [comment, setComment] = useState("");
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [activeTab, setActiveTab] = useState("description");
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () =>
+    window.removeEventListener("resize", handleResize);
+}, []);
 
   const {addToCart} = useContext(CartContext);
 
@@ -153,87 +167,51 @@ const fetchProduct = async () => {
 
   const status = stockStatus(product.stock);
 
-  return (
-    <div className="product-details-page">
-    <div className="pd-page">
 
-    {/* Breadcrumb */}
-
-    <section className="pd-breadcrumb">
-
-      <span>Home</span>
-
-      <span>/</span>
-
-      <span>{product.category}</span>
-
-      <span>/</span>
-
-      <strong>{product.name}</strong>
-
-    </section>
-
-    {/* Product */}
-
-    <section className="pd-container">
-
-      {/* Gallery */}
-
-      <div className="pd-gallery">
-
-        <ProductGallery
-          images={product.images}
-          productId={product._id}
-        />
-
-      </div>
-
-      {/* Content */}
-
-      <div className="pd-content">
-
-       <ProductInfo
-          product={product}
-          averageRating={averageRating}
-          totalReviews={totalReviews}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          handleAddToCart={handleAddToCart}
-          handleBuyNow={handleBuyNow}
-        />
-
-
-      </div>
-
-    </section>
-
-    {/* ================= Reviews ================= */}
-
-        <ReviewSection
+return (
+  <>
+    {isMobile ? (
+      <MobileProductDetails
+        product={product}
         user={user}
         reviews={reviews}
-        totalReviews={totalReviews}
+        relatedProducts={relatedProducts}
+        quantity={quantity}
+        setQuantity={setQuantity}
         averageRating={averageRating}
+        totalReviews={totalReviews}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        handleAddToCart={handleAddToCart}
+        handleBuyNow={handleBuyNow}
+        handleReviewSubmit={handleReviewSubmit}
         rating={rating}
         setRating={setRating}
         comment={comment}
         setComment={setComment}
-        handleReviewSubmit={handleReviewSubmit}
       />
-
-{/* =========================
-    RELATED PRODUCTS
-========================= */}
-
-<RelatedProducts
-    relatedProducts={relatedProducts}
-/>
-
-</div>
-</div>
-
+    ) : (
+      <DesktopProductDetails
+        product={product}
+        user={user}
+        reviews={reviews}
+        relatedProducts={relatedProducts}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        averageRating={averageRating}
+        totalReviews={totalReviews}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        handleAddToCart={handleAddToCart}
+        handleBuyNow={handleBuyNow}
+        handleReviewSubmit={handleReviewSubmit}
+        rating={rating}
+        setRating={setRating}
+        comment={comment}
+        setComment={setComment}
+      />
+    )}
+  </>
 );
 
 };

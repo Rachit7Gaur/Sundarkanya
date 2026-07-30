@@ -1,82 +1,144 @@
-function ProductTabs({ product, activeTab, setActiveTab }) {
-  return (
-    <div className="pd-tabs">
+import { useState } from "react";
+import "./ProductTabs.css";
 
-      <div className="pd-tab-buttons">
+function ProductTabs({ product }) {
+
+  const [tab, setTab] = useState("description");
+
+  return (
+
+    <section className="tabs">
+
+      <div className="tabs-header">
 
         <button
-          className={activeTab === "description" ? "active" : ""}
-          onClick={() => setActiveTab("description")}
+          className={tab==="description" ? "active" : ""}
+          onClick={() => setTab("description")}
         >
           Description
         </button>
 
         <button
-          className={activeTab === "details" ? "active" : ""}
-          onClick={() => setActiveTab("details")}
+          className={tab==="details" ? "active" : ""}
+          onClick={() => setTab("details")}
         >
           Details
         </button>
 
         <button
-          className={activeTab === "care" ? "active" : ""}
-          onClick={() => setActiveTab("care")}
+          className={tab==="shipping" ? "active" : ""}
+          onClick={() => setTab("shipping")}
         >
-          Care Guide
+          Shipping
+        </button>
+
+        <button
+          className={tab==="care" ? "active" : ""}
+          onClick={() => setTab("care")}
+        >
+          Care
         </button>
 
       </div>
 
-      <div className="pd-tab-content">
+      <div className="tabs-body">
 
-        {activeTab === "description" && (
-          <p>{product.description}</p>
-        )}
+        {tab==="description" && (
+          <div>
 
-        {activeTab === "details" && (
-          <div className="pd-detail-list">
+            <h3>Product Description</h3>
 
             <p>
-              <strong>Category :</strong> {product.category}
-            </p>
-
-            <p>
-              <strong>Material :</strong> Premium Alloy
-            </p>
-
-            <p>
-              <strong>Finish :</strong> Gold Plated
-            </p>
-
-            <p>
-              <strong>Skin Friendly :</strong> Yes
-            </p>
-
-            <p>
-              <strong>Availability :</strong> {product.stock} Pieces
+              {product.description}
             </p>
 
           </div>
         )}
 
-        {activeTab === "care" && (
-          <ul className="pd-care-list">
+        {tab==="details" && (
+          <div>
 
-            <li>Store inside a jewellery box.</li>
+            <table>
 
-            <li>Avoid water & perfume.</li>
+              <tbody>
 
-            <li>Clean using soft cloth.</li>
+                <tr>
+                  <td>Category</td>
+                  <td>{product.category}</td>
+                </tr>
 
-            <li>Keep away from chemicals.</li>
+                <tr>
+                  <td>Stock</td>
+                  <td>{product.stock}</td>
+                </tr>
 
-          </ul>
+                <tr>
+                  <td>Material</td>
+                  <td>Premium Jewellery</td>
+                </tr>
+
+                <tr>
+                  <td>Finish</td>
+                  <td>Luxury Polish</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+        )}
+
+        {tab==="shipping" && (
+          <div>
+
+            <h3>Shipping Information</h3>
+
+            <p>
+
+              • Free Shipping across India
+
+              <br/><br/>
+
+              • Dispatch within 24 hours
+
+              <br/><br/>
+
+              • Delivery in 3-7 business days
+
+            </p>
+
+          </div>
+        )}
+
+        {tab==="care" && (
+          <div>
+
+            <h3>Jewellery Care</h3>
+
+            <p>
+
+              Store in a dry place.
+
+              <br/><br/>
+
+              Avoid perfumes.
+
+              <br/><br/>
+
+              Clean with soft cloth.
+
+            </p>
+
+          </div>
         )}
 
       </div>
 
-    </div>
+    </section>
+
   );
+
 }
 
 export default ProductTabs;

@@ -1,0 +1,117 @@
+.tabs{
+
+    margin-top:90px;
+
+}
+
+.tabs-header{
+
+    display:flex;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.tabs-header button{
+
+    flex:1;
+
+    height:70px;
+
+    border:none;
+
+    background:none;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#777;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.tabs-header button:hover{
+
+    color:#B08D57;
+
+}
+
+.tabs-header button.active{
+
+    color:#B08D57;
+
+}
+
+.tabs-header button.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:#B08D57;
+
+}
+
+.tabs-body{
+
+    padding:45px 10px;
+
+}
+
+.tabs-body h3{
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+.tabs-body p{
+
+    line-height:2;
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+.tabs-body table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.tabs-body td{
+
+    padding:18px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.tabs-body td:first-child{
+
+    width:220px;
+
+    font-weight:600;
+
+    color:#222;
+
+}

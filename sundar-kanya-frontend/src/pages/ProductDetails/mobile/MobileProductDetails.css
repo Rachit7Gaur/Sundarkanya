@@ -1,0 +1,330 @@
+/* ===========================
+      MOBILE PRODUCT PAGE
+=========================== */
+
+.mp-page{
+
+    background:#faf7f2;
+
+    min-height:100vh;
+
+}
+
+
+/* ===========================
+      GALLERY
+=========================== */
+
+.mp-gallery{
+
+    margin-top:0;
+
+    background:#fff;
+
+}
+
+/* ===========================
+      PRODUCT INFO
+=========================== */
+
+.mp-info{
+
+    background:#fff;
+
+    padding:22px 18px;
+
+    margin-top:10px;
+
+    border-radius:24px 24px 0 0;
+
+}
+
+.mp-category{
+
+    color:#B08D57;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-weight:600;
+
+}
+
+.mp-title{
+
+    margin-top:10px;
+
+    font-size:26px;
+
+    color:#222;
+
+    line-height:1.4;
+
+}
+
+.mp-rating{
+
+    margin-top:12px;
+
+    color:#B08D57;
+
+    font-weight:600;
+
+}
+
+.mp-rating span{
+
+    color:#666;
+
+    margin-left:8px;
+
+    font-weight:400;
+
+}
+
+.mp-price{
+
+    margin-top:18px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+/* ===========================
+      STOCK
+=========================== */
+
+.mp-stock{
+
+    margin-top:18px;
+
+}
+
+.stock-available{
+
+    color:#2e7d32;
+
+    font-weight:600;
+
+}
+
+.stock-out{
+
+    color:#d32f2f;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+      DIVIDER
+=========================== */
+
+.mp-divider{
+
+    height:1px;
+
+    background:#eee;
+
+    margin:24px 0;
+
+}
+
+/* ===========================
+      QUANTITY
+=========================== */
+
+.mp-quantity h3{
+
+    font-size:18px;
+
+    color:#222;
+
+    margin-bottom:16px;
+
+}
+
+/* ===========================
+      BUTTONS
+=========================== */
+
+.mp-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    margin-top:28px;
+
+}
+
+.mp-cart-btn{
+
+    height:54px;
+
+    border-radius:40px;
+
+    border:2px solid #B08D57;
+
+    background:#fff;
+
+    color:#B08D57;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.mp-buy-btn{
+
+    height:56px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#B08D57;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.mp-buy-btn:hover{
+
+    background:#987548;
+
+}
+
+/* ===========================
+      STICKY BOTTOM BAR
+=========================== */
+
+.mp-sticky-bar{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+
+    padding:12px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    box-shadow:0 -6px 20px rgba(0,0,0,.08);
+
+    z-index:999;
+
+}
+
+.mp-sticky-price{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.mp-sticky-label{
+
+    font-size:12px;
+
+    color:#777;
+
+}
+
+.mp-sticky-price h3{
+
+    margin-top:2px;
+
+    font-size:22px;
+
+    color:#222;
+
+}
+
+.mp-sticky-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.sticky-cart-btn{
+
+    height:46px;
+
+    padding:0 18px;
+
+    border:2px solid #B08D57;
+
+    border-radius:30px;
+
+    background:#fff;
+
+    color:#B08D57;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.sticky-buy-btn{
+
+    height:46px;
+
+    padding:0 20px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#B08D57;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.mp-page{
+
+    background:#faf7f2;
+
+    min-height:100vh;
+
+    padding-bottom:95px;
+
+}

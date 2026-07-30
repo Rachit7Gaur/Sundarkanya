@@ -1,0 +1,83 @@
+/* ===========================
+      TRUST SECTION
+=========================== */
+
+.trust-section{
+
+    margin-top:28px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.trust-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:center;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+
+}
+
+.trust-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:#faf3e7;
+
+    color:#B08D57;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:20px;
+
+}
+
+.trust-card h4{
+
+    font-size:15px;
+
+    color:#222;
+
+    margin-bottom:4px;
+
+}
+
+.trust-card p{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+@media(max-width:420px){
+
+.trust-section{
+
+    grid-template-columns:1fr;
+
+}
+
+}

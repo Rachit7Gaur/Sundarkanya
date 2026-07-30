@@ -1,8 +1,14 @@
-import Button from "../Button/Button";
+import {
+  FaStar,
+  FaTruck,
+  FaUndo,
+  FaShieldAlt,
+  FaHeart,
+} from "react-icons/fa";
+
 import QuantitySelector from "../ProductDetails/QuantitySelector";
-import formatCurrency from "../../utils/formatCurrency";
-import stockStatus from "../../utils/stockStatus";
-import ProductTabs from "./ProductTabs";
+
+import "./ProductInfo.css";
 
 function ProductInfo({
   product,
@@ -10,173 +16,141 @@ function ProductInfo({
   totalReviews,
   quantity,
   setQuantity,
-  activeTab,
-  setActiveTab,
   handleAddToCart,
   handleBuyNow,
 }) {
-  const status = stockStatus(product.stock);
 
   return (
-    <div className="pd-content">
+    <div className="pi">
 
-  <span className="pd-category">
-    {product.category.toUpperCase()}
-  </span>
+      <span className="pi-category">
+        {product.category}
+      </span>
 
-  <h1 className="pd-title">
-    {product.name}
-  </h1>
+      <h1 className="pi-title">
+        {product.name}
+      </h1>
 
-  <div className="pd-rating">
-    ⭐ {Number(averageRating).toFixed(1)}
-    <span>
-      ({totalReviews} Reviews)
-    </span>
-  </div>
+      <div className="pi-rating">
 
-  <div className="pd-price-box">
+        <FaStar className="star"/>
 
-    <h2 className="pd-price">
-      {formatCurrency(product.price)}
-    </h2>
+        <span>
+          {averageRating.toFixed(1)}
+        </span>
 
-    <span className="pd-tax">
-      Inclusive of all taxes
-    </span>
+        <small>
+          ({totalReviews} Reviews)
+        </small>
 
-  </div>
+      </div>
 
-  <div className="pd-highlights">
+      <div className="pi-price">
 
-  <div className="pd-highlight">
-    <span>✨</span>
-    <p>Premium Finish</p>
-  </div>
+        ₹{product.price}
 
-  <div className="pd-highlight">
-    <span>💎</span>
-    <p>Skin Friendly</p>
-  </div>
+      </div>
 
-  <div className="pd-highlight">
-    <span>🚚</span>
-    <p>Free Shipping</p>
-  </div>
+      <p className="pi-tax">
+        Inclusive of all taxes
+      </p>
 
-</div>
+      <div className="pi-offers">
 
-<div
-  className="pd-stock"
-  style={{ color: status.color }}
->
-  {status.text}
-</div>
+        <h4>Available Offers</h4>
 
-<ProductTabs
-  product={product}
-  activeTab={activeTab}
-  setActiveTab={setActiveTab}
-/>
+        <ul>
 
-{/* Quantity */}
+          <li>✨ Flat ₹300 OFF on first order</li>
 
-<div className="pd-quantity">
+          <li>🚚 Free Shipping across India</li>
 
-  <h4>Quantity</h4>
+          <li>💳 Secure Online Payment</li>
 
-  <QuantitySelector
-    quantity={quantity}
-    setQuantity={setQuantity}
-    maxStock={product.stock}
-  />
+          <li>↩ Easy 7 Days Return</li>
 
-</div>
+        </ul>
 
-{/* Buttons */}
+      </div>
 
-<div className="pd-buttons">
+      <div className="pi-stock">
 
-  <Button
-    className="pd-cart-btn"
-    onClick={handleAddToCart}
-  >
-    Add To Bag
-  </Button>
+        {product.stock > 0 ? (
+          <span className="stock-in">
+            In Stock
+          </span>
+        ) : (
+          <span className="stock-out">
+            Out of Stock
+          </span>
+        )}
 
-  <Button
-    className="pd-buy-btn"
-    variant="secondary"
-    onClick={handleBuyNow}
-  >
-    Buy Now
-  </Button>
+      </div>
 
-</div>
+      <div className="pi-quantity">
 
-{/* Services */}
+        <label>Quantity</label>
 
-<div className="pd-services">
+        <QuantitySelector
+          quantity={quantity}
+          setQuantity={setQuantity}
+        />
 
-  <div className="pd-service">
+      </div>
 
-    <span>🚚</span>
+      <div className="pi-buttons">
 
-    <div>
+        <button
+          className="wishlist-btn"
+        >
+          <FaHeart />
+        </button>
 
-      <h4>Free Shipping</h4>
+        <button
+          className="cart-btn"
+          onClick={handleAddToCart}
+        >
+          Add To Cart
+        </button>
 
-      <p>Above ₹999</p>
+      </div>
 
-    </div>
+      <button
+        className="buy-btn"
+        onClick={handleBuyNow}
+      >
+        Buy Now
+      </button>
 
-  </div>
+      <div className="pi-services">
 
-  <div className="pd-service">
+        <div>
 
-    <span>🔒</span>
+          <FaTruck />
 
-    <div>
+          <span>Free Shipping</span>
 
-      <h4>Secure Payment</h4>
+        </div>
 
-      <p>100% Safe Checkout</p>
+        <div>
 
-    </div>
+          <FaUndo />
 
-  </div>
+          <span>Easy Returns</span>
 
-  <div className="pd-service">
+        </div>
 
-    <span>↩️</span>
+        <div>
 
-    <div>
+          <FaShieldAlt />
 
-      <h4>Easy Returns</h4>
+          <span>Secure Payment</span>
 
-      <p>7 Day Return</p>
+        </div>
+
+      </div>
 
     </div>
-
-  </div>
-
-  <div className="pd-service">
-
-    <span>💎</span>
-
-    <div>
-
-      <h4>Premium Quality</h4>
-
-      <p>Handcrafted Jewellery</p>
-
-    </div>
-
-  </div>
-
-</div>
-
-</div>
   );
 }
 
