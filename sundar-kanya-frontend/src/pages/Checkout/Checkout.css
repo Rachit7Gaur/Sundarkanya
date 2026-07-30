@@ -1,249 +1,962 @@
-/* ==========================================
-   CHECKOUT PAGE
-========================================== */
+/*==================================================
+GOOGLE FONTS
+==================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+
+/*==================================================
+PAGE
+==================================================*/
 
 .checkout-page{
-    background:#FAF7F2;
+
+    background:#F8F5F0;
+
     min-height:100vh;
-    padding-top:170px;
-    padding-bottom:80px;
+
+    padding:70px 0 100px;
+
 }
 
-/* ==========================================
-   HEADER
-========================================== */
-
-.checkout-header{
-    max-width:1400px;
-    margin:0 auto 45px;
-    padding:0 5%;
-}
-
-.checkout-breadcrumb{
-    color:#B08D57;
-    letter-spacing:2px;
-    font-size:13px;
-    text-transform:uppercase;
-    margin-bottom:12px;
-}
-
-.checkout-header h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:52px;
-    color:#222;
-    font-weight:600;
-}
-
-/* ==========================================
-   LAYOUT
-========================================== */
+/*==================================================
+CONTAINER
+==================================================*/
 
 .checkout-container{
-    max-width:1400px;
+
+    width:min(1400px,92%);
+
     margin:auto;
-    padding:0 5%;
+
 }
+
+/*==================================================
+HERO
+==================================================*/
+
+.checkout-hero{
+
+    width:min(900px,92%);
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+}
+
+.checkout-subtitle{
+
+    color:#C8A96A;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+
+}
+
+.checkout-hero h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:68px;
+
+    font-weight:600;
+
+    color:#222;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+
+}
+
+.checkout-description{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+}
+
+/*==================================================
+MAIN LAYOUT
+==================================================*/
 
 .checkout-layout{
+
     display:grid;
+
     grid-template-columns:2fr 1fr;
+
     gap:40px;
+
     align-items:start;
+
 }
 
-/* ==========================================
-   FORM CARD
-========================================== */
+/*==================================================
+LEFT CARD
+==================================================*/
 
-.checkout-form-card{
+.checkout-card{
+
     background:#fff;
-    border-radius:22px;
-    padding:40px;
+
+    border-radius:28px;
+
+    padding:45px;
+
     border:1px solid #ECE4D7;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.05);
+
 }
 
-.checkout-form-card h2{
+/*==================================================
+RIGHT CARD
+==================================================*/
+
+.summary-card{
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:35px;
+
+    border:1px solid #ECE4D7;
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.05);
+
+    position:sticky;
+
+    top:120px;
+
+}
+
+/*==================================================
+CARD HEADER
+==================================================*/
+
+.card-header{
+
+    margin-bottom:35px;
+
+}
+
+.card-header h2{
+
     font-family:"Cormorant Garamond",serif;
-    font-size:36px;
-    margin-bottom:30px;
+
+    font-size:42px;
+
     color:#222;
+
+    margin-bottom:10px;
+
 }
 
-.checkout-form-card form{
+.card-header p{
+
+    color:#777;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+/*==================================================
+SUMMARY TITLE
+==================================================*/
+
+.summary-card h2{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:40px;
+
+    color:#222;
+
+    margin-bottom:35px;
+
+}
+
+/*==================================================
+CHECKOUT FORM
+==================================================*/
+
+.checkout-form{
+
     display:flex;
     flex-direction:column;
-    gap:18px;
+    gap:26px;
+
 }
 
-/* Inputs */
+/*==================================================
+INPUT GROUP
+==================================================*/
 
-.checkout-form-card input,
-.checkout-form-card textarea,
-.checkout-form-card select{
-    width:100%;
-    padding:16px 18px;
-    border:1px solid #DDD4C8;
-    border-radius:12px;
-    background:#fff;
-    font-size:15px;
-    outline:none;
-    transition:.3s;
+.input-group{
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
 }
 
-.checkout-form-card textarea{
-    min-height:120px;
-    resize:none;
-}
+.input-group label{
 
-.checkout-form-card input:focus,
-.checkout-form-card textarea:focus,
-.checkout-form-card select:focus{
-    border-color:#B08D57;
-    box-shadow:0 0 0 4px rgba(176,141,87,.12);
-}
+    font-size:13px;
 
-/* Two Column */
-
-.two-column{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.payment-title{
-    margin-top:15px;
-    font-size:20px;
-    color:#222;
     font-weight:600;
+
+    color:#8C6A3E;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
 }
 
-/* Button */
+/*==================================================
+INPUTS
+==================================================*/
+
+.input-group input,
+
+.input-group textarea,
+
+.payment-select{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    border:1px solid #E8DED0;
+
+    background:#FCFBF8;
+
+    font-size:15px;
+
+    font-family:"Poppins",sans-serif;
+
+    color:#333;
+
+    outline:none;
+
+    transition:.35s ease;
+
+}
+
+.input-group textarea{
+
+    resize:none;
+
+    min-height:140px;
+
+}
+
+.input-group input::placeholder,
+
+.input-group textarea::placeholder{
+
+    color:#999;
+
+}
+
+/*==================================================
+FOCUS EFFECT
+==================================================*/
+
+.input-group input:focus,
+
+.input-group textarea:focus,
+
+.payment-select:focus{
+
+    background:#fff;
+
+    border-color:#C8A96A;
+
+    box-shadow:
+
+    0 0 0 5px rgba(200,169,106,.15);
+
+}
+
+/*==================================================
+CITY + STATE
+==================================================*/
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:22px;
+
+}
+
+/*==================================================
+PAYMENT
+==================================================*/
+
+.payment-select{
+
+    cursor:pointer;
+
+}
+
+/*==================================================
+BUTTON
+==================================================*/
 
 .checkout-btn{
-    margin-top:12px;
-    height:56px;
+
+    margin-top:10px;
+
+    height:60px;
+
     border:none;
-    border-radius:12px;
-    background:#B08D57;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #D6B06B,
+        #B98B3D
+    );
+
     color:#fff;
+
     font-size:16px;
+
     font-weight:600;
+
+    letter-spacing:1px;
+
     cursor:pointer;
+
     transition:.35s;
+
+    box-shadow:
+    0 15px 35px rgba(185,139,61,.28);
+
 }
 
 .checkout-btn:hover{
-    background:#977445;
-    transform:translateY(-2px);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 20px 40px rgba(185,139,61,.35);
+
 }
 
-/* ==========================================
-   RIGHT CARD
-========================================== */
+.checkout-btn:disabled{
 
-.checkout-info-card{
+    opacity:.6;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+
+/*==================================================
+SMALL EFFECT
+==================================================*/
+
+.checkout-card{
+
+    transition:.35s;
+
+}
+
+.checkout-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*==================================================
+ORDER SUMMARY PRODUCTS
+==================================================*/
+
+.summary-products{
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-bottom:30px;
+
+}
+
+.summary-product{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    padding:18px;
+
+    border:1px solid #ECE4D7;
+
+    border-radius:20px;
+
+    background:#FCFBF8;
+
+    transition:.35s ease;
+
+}
+
+.summary-product:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.06);
+
+}
+
+.summary-product img{
+
+    width:80px;
+    height:80px;
+
+    border-radius:18px;
+
+    object-fit:cover;
+
+    border:1px solid #E9DED0;
+
     background:#fff;
-    border-radius:22px;
+
+}
+
+.summary-product-info{
+
+    flex:1;
+
+}
+
+.summary-product-info h4{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#222;
+
+    margin-bottom:8px;
+
+    line-height:1.4;
+
+}
+
+.summary-product-info p{
+
+    font-size:14px;
+
+    color:#888;
+
+}
+
+.summary-price{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#B68A3E;
+
+}
+
+/*==================================================
+DIVIDER
+==================================================*/
+
+.summary-divider{
+
+    height:1px;
+
+    background:#ECE4D7;
+
+    margin:28px 0;
+
+}
+
+/*==================================================
+PRICE ROWS
+==================================================*/
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+    font-size:16px;
+
+    color:#555;
+
+}
+
+.summary-row span:last-child{
+
+    font-weight:600;
+
+}
+
+/*==================================================
+FREE SHIPPING
+==================================================*/
+
+.free{
+
+    color:#2E8B57;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+TOTAL
+==================================================*/
+
+.summary-row.total{
+
+    margin-top:15px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        135deg,
+        #D8B574,
+        #B68A3E
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    box-shadow:
+    0 15px 35px rgba(182,138,62,.28);
+
+}
+
+.summary-row.total span{
+
+    color:#fff;
+
+}
+
+/*==================================================
+TRUST SECTION
+==================================================*/
+
+.summary-trust{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    margin-top:15px;
+
+}
+
+.summary-trust div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#666;
+
+    font-size:15px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #F1ECE4;
+
+}
+
+.summary-trust div:last-child{
+
+    border:none;
+
+}
+
+/*==================================================
+EMPTY CART
+==================================================*/
+
+.empty-cart{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+LUXURY PAYMENT LAYOUT
+==================================================*/
+
+.luxury-payment-layout{
+
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:40px;
+    align-items:start;
+    margin-top:30px;
+
+}
+
+/*==================================================
+LEFT SUMMARY
+==================================================*/
+
+.luxury-payment-summary{
+
+    background:#fff;
+    border-radius:28px;
     padding:35px;
     border:1px solid #ECE4D7;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
+    box-shadow:0 20px 45px rgba(0,0,0,.06);
     position:sticky;
     top:120px;
+
 }
 
-.checkout-info-card h2{
+.luxury-payment-title{
+
     font-family:"Cormorant Garamond",serif;
-    font-size:34px;
+    font-size:42px;
+    color:#222;
     margin-bottom:25px;
+
 }
 
-.checkout-feature{
-    padding:16px 0;
-    border-bottom:1px solid #F0ECE5;
+.luxury-divider{
+
+    height:1px;
+    background:#ECE4D7;
+    margin:24px 0;
+
+}
+
+.luxury-row{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
     font-size:16px;
     color:#555;
+
 }
 
-.checkout-feature:last-child{
+.luxury-row span:last-child{
+
+    font-weight:600;
+
+}
+
+.luxury-free{
+
+    color:#2F8B57;
+    font-weight:700;
+
+}
+
+.luxury-total-row{
+
+    background:linear-gradient(135deg,#D6B06B,#B98B3D);
+    padding:18px 22px;
+    border-radius:18px;
+    color:#fff;
+    font-size:19px;
+    font-weight:700;
+    margin-top:10px;
+
+}
+
+.luxury-total-row span{
+
+    color:#fff;
+
+}
+
+/*==================================================
+FEATURES
+==================================================*/
+
+.luxury-features{
+
+    margin-top:30px;
+
+}
+
+.luxury-feature{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid #F2ECE4;
+    color:#666;
+    font-size:15px;
+
+}
+
+.luxury-feature:last-child{
+
     border:none;
+
 }
 
-/* ==========================================
-   PAYMENT
-========================================== */
+/*==================================================
+RIGHT CARD
+==================================================*/
 
-.payment-section{
+.luxury-payment-card{
+
+    background:#fff;
+    border-radius:30px;
+    padding:60px;
+    border:1px solid #ECE4D7;
+    box-shadow:0 20px 60px rgba(0,0,0,.06);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+
+}
+
+/* Gold Decorative Circles */
+
+.luxury-payment-card::before{
+
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    background:rgba(214,176,107,.08);
+    border-radius:50%;
+    top:-120px;
+    right:-120px;
+
+}
+
+.luxury-payment-card::after{
+
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    background:rgba(214,176,107,.06);
+    border-radius:50%;
+    left:-90px;
+    bottom:-90px;
+
+}
+
+/*==================================================
+TEXT
+==================================================*/
+
+.luxury-payment-tag{
+
+    display:inline-block;
+    color:#C8A96A;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:18px;
+    position:relative;
+    z-index:2;
+
+}
+
+.luxury-payment-heading{
+
+    position:relative;
+    z-index:2;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:58px;
+    color:#222;
+    margin-bottom:18px;
+
+}
+
+.luxury-payment-text{
+
+    position:relative;
+    z-index:2;
+
+    max-width:560px;
+    margin:auto;
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
+    margin-bottom:45px;
+
+}
+
+/*==================================================
+PAYMENT BUTTON
+==================================================*/
+.payment-btn{
+    background:#B68A3E !important;
+}
+
+.luxury-payment-button-wrapper{
+
     display:flex;
     justify-content:center;
     align-items:center;
+    margin:40px 0;
+    position:relative;
+    z-index:2;
+
 }
 
-.payment-card{
+.luxury-payment-button{
+
     width:100%;
-    max-width:650px;
-    background:#fff;
-    padding:50px;
-    border-radius:22px;
-    text-align:center;
+    max-width:360px;
+
+}
+
+/*==================================================
+SECURITY
+==================================================*/
+
+.luxury-payment-security{
+
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:35px;
+
+}
+
+.luxury-security-item{
+
+    background:#FCFBF8;
     border:1px solid #ECE4D7;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
-
-.payment-card h2{
-    font-family:"Cormorant Garamond",serif;
-    font-size:40px;
-    margin-bottom:18px;
-}
-
-.payment-card p{
+    padding:12px 18px;
+    border-radius:30px;
     color:#666;
-    margin-bottom:30px;
-    line-height:1.7;
+    font-size:14px;
+    transition:.3s;
+
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+.luxury-security-item:hover{
+
+    background:#D6B06B;
+    color:#fff;
+    border-color:#D6B06B;
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
 
 @media(max-width:992px){
 
-.checkout-layout{
+.luxury-payment-layout{
+
     grid-template-columns:1fr;
+
 }
 
-.checkout-info-card{
+.luxury-payment-summary{
+
     position:static;
+
 }
 
 }
 
 @media(max-width:768px){
 
-.checkout-page{
-    padding-top:150px;
+.luxury-payment-card{
+
+    padding:35px 25px;
+
 }
 
-.checkout-header{
-    padding:0 20px;
+.luxury-payment-heading{
+
+    font-size:40px;
+
 }
 
-.checkout-header h1{
-    font-size:36px;
+.luxury-payment-title{
+
+    font-size:34px;
+
 }
 
-.checkout-container{
-    padding:0 20px;
+.luxury-payment-security{
+
+    gap:15px;
+
 }
 
-.checkout-form-card,
-.checkout-info-card,
-.payment-card{
-    padding:25px;
-}
+.luxury-security-item{
 
-.two-column{
-    grid-template-columns:1fr;
+    width:100%;
+
 }
 
 }

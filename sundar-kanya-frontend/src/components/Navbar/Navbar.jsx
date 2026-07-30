@@ -1,152 +1,87 @@
-import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+
+import "./Navbar.css";
 
 import { AuthContext } from "../../context/AuthContext";
 import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
 
-import {
-  FiHeart,
-  FiShoppingCart,
-  FiMenu,
-  FiUser,
-} from "react-icons/fi";
-
-import "./Navbar.css";
-
-import NavLinks from "./Navlinks";
-import SearchBar from "./SearchBar";
+import DesktopNavbar from "./DesktopNavbar";
+import MobileNavbar from "./MobileNavbar";
 import MobileMenu from "./MobileMenu";
 import TopAnnouncement from "./TopAnnouncement";
 import TopUtilityBar from "./TopUtilityBar";
 
 function Navbar() {
-  const { user, logout } = useContext(AuthContext);
 
-  const { cartCount } = useContext(CartContext);
+    const { user, logout } = useContext(AuthContext);
 
-  const { wishlist } = useContext(WishlistContext);
+    const { cartCount } = useContext(CartContext);
 
-  const wishlistCount = wishlist.length;
+    const { wishlist } = useContext(WishlistContext);
 
-  const [mobileMenu, setMobileMenu] = useState(false);
+    const wishlistCount = wishlist.length;
 
-  const [scrolled, setScrolled] = useState(false);
+    const [mobileMenu, setMobileMenu] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const [scrolled, setScrolled] = useState(false);
 
-    window.addEventListener("scroll", handleScroll);
+    useEffect(() => {
 
-    return () =>
-      window.removeEventListener("scroll", handleScroll);
-  }, []);
+        const handleScroll = () => {
 
-  return (
-    <>
-      <TopAnnouncement />
+            setScrolled(window.scrollY > 50);
 
-      <TopUtilityBar />
+        };
 
-      <nav
-        className={`navbar ${scrolled ? "scrolled" : ""}`}
-      >
-        {/* LEFT */}
+        window.addEventListener("scroll", handleScroll);
 
-        <div className="navbar-left">
-          <div className="logo">
-            <Link to="/">
-              <h2>Sundar Kanya</h2>
+        return () =>
+            window.removeEventListener("scroll", handleScroll);
 
-              <span>JEWELLERY</span>
-            </Link>
-          </div>
-        </div>
+    }, []);
 
-        {/* CENTER */}
+    return (
 
-        <div className="navbar-center">
-          <div className="desktop-nav">
-            <NavLinks />
-          </div>
-        </div>
+        <>
 
-        {/* RIGHT */}
+            <TopAnnouncement scrolled={scrolled} />
 
-        <div className="navbar-right">
-          <div className="desktop-search">
-            <SearchBar />
-          </div>
+            <TopUtilityBar scrolled={scrolled} />
 
-          {user?.role === "admin" && (
-            <Link
-              to="/admin"
-              className="admin-btn"
-            >
-              👑 Admin Panel
-            </Link>
-          )}
+            <DesktopNavbar
+                scrolled={scrolled}
+                user={user}
+                cartCount={cartCount}
+                wishlistCount={wishlistCount}
+            />
 
-          <Link
-            to="/wishlist"
-            className="icon"
-          >
-            <FiHeart />
+            <MobileNavbar
+                scrolled={scrolled}
+                mobileMenu={mobileMenu}
+                setMobileMenu={setMobileMenu}
+                cartCount={cartCount}
+                wishlistCount={wishlistCount}
+            />
 
-            {wishlistCount > 0 && (
-              <span className="badge">
-                {wishlistCount}
-              </span>
+            {mobileMenu && (
+
+                <MobileMenu
+                    isOpen={mobileMenu}
+                    isLoggedIn={!!user}
+                    user={user}
+                    cartCount={cartCount}
+                    wishlistCount={wishlistCount}
+                    logout={logout}
+                    closeMenu={() => setMobileMenu(false)}
+                />
+
             )}
-          </Link>
 
-          <Link
-            to="/cart"
-            className="icon"
-          >
-            <FiShoppingCart />
+        </>
 
-            {cartCount > 0 && (
-              <span className="badge">
-                {cartCount}
-              </span>
-            )}
-          </Link>
+    );
 
-          <Link
-            to={user ? "/profile" : "/login"}
-            className="icon account-icon"
-          >
-            <FiUser />
-          </Link>
-
-          <button
-            className="menu-btn"
-            onClick={() =>
-              setMobileMenu(!mobileMenu)
-            }
-          >
-            <FiMenu />
-          </button>
-        </div>
-      </nav>
-
-      {mobileMenu && (
-        <MobileMenu
-          isLoggedIn={!!user}
-          user={user}
-          cartCount={cartCount}
-          wishlistCount={wishlistCount}
-          logout={logout}
-          closeMenu={() =>
-            setMobileMenu(false)
-          }
-        />
-      )}
-    </>
-  );
 }
 
 export default Navbar;

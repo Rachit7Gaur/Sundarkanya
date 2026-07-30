@@ -1,0 +1,213 @@
+/*==================================================
+                NAVBAR RIGHT
+==================================================*/
+
+.navbar-right{
+
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:14px;
+
+    width:320px;
+
+    flex-shrink:0;
+
+}
+
+/*==================================================
+                ADMIN BUTTON
+==================================================*/
+
+.admin-btn{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:145px;
+    height:46px;
+    padding:12px 18px;
+
+    background:#7B1E2B;
+
+    color:#fff;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:.35s ease;
+
+    white-space:nowrap;
+    flex-shrink: 0;
+
+}
+
+.admin-btn:hover{
+
+    background:#C8A96A;
+
+    color:#111;
+
+    transform:translateY(-2px);
+
+}
+
+/*==================================================
+                    ICONS
+==================================================*/
+
+.icon{
+
+    position:relative;
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:1px solid #ECE3D6;
+
+    color:#1E1E1E;
+
+    font-size:21px;
+
+    text-decoration:none;
+
+    transition:all .35s ease;
+
+}
+
+.icon:hover{
+
+    background:#C8A96A;
+
+    color:#fff;
+
+    border-color:#C8A96A;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+
+}
+
+/*==================================================
+                    BADGE
+==================================================*/
+
+.badge{
+
+    position:absolute;
+
+    top:-3px;
+    right:-3px;
+
+    min-width:20px;
+    height:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0 5px;
+
+    border-radius:50%;
+
+    background:#7B1E2B;
+
+    color:#fff;
+
+    font-size:11px;
+    font-weight:700;
+
+    border:2px solid #FAF7F2;
+
+    animation:badgePop .4s ease;
+
+}
+
+/*==================================================
+                ACCOUNT ICON
+==================================================*/
+
+.account-icon{
+
+    margin-left:2px;
+
+}
+
+/*==================================================
+                MENU BUTTON
+==================================================*/
+
+.menu-btn{
+
+    display:none;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    border:1px solid #ECE3D6;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+.menu-btn:hover{
+
+    background:#C8A96A;
+
+    color:#fff;
+
+}
+
+/*==================================================
+                ANIMATION
+==================================================*/
+
+@keyframes badgePop{
+
+    0%{
+
+        transform:scale(0);
+
+    }
+
+    70%{
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}

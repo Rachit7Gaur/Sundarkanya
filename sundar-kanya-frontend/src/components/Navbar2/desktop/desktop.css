@@ -1,0 +1,517 @@
+/*==================================================
+                DESKTOP NAVBAR
+==================================================*/
+
+.desktop-navbar{
+
+    position:fixed;
+
+    top:68px;
+
+    left:0;
+
+    width:100%;
+
+    height:90px;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 60px;
+
+    box-sizing:border-box;
+
+    border-bottom:1px solid #ececec;
+
+    z-index:1000;
+
+    transition:all .35s ease;
+}
+
+
+
+.desktop-navbar.scrolled{
+    top: 0;
+}
+
+/*==================================================
+                    LOGO
+==================================================*/
+
+.desktop-logo{
+
+    flex:0 0 auto;
+
+}
+
+.desktop-logo a{
+
+    text-decoration:none;
+
+}
+
+.desktop-logo h2{
+
+    margin:0;
+
+    font-size:42px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-weight:700;
+
+    color:#111;
+}
+
+.desktop-logo span{
+
+    display:block;
+
+    margin-top:2px;
+
+    font-size:10px;
+
+    letter-spacing:8px;
+
+    color:#C8A96A;
+}
+
+/*==================================================
+                    RIGHT
+==================================================*/
+
+.desktop-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+/*==================================================
+                NAVIGATION
+==================================================*/
+
+.desktop-nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+}
+
+.desktop-nav-links li{
+
+    position:relative;
+}
+
+.desktop-nav-links a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    letter-spacing:.5px;
+
+    transition:.3s;
+}
+
+.desktop-nav-links a:hover{
+
+    color:#C8A96A;
+}
+
+.desktop-nav-links li a,
+.desktop-dropdown-btn{
+    position:relative;
+    text-decoration:none;
+    color:#111;
+    transition:.3s;
+}
+
+/* Gold underline */
+.desktop-nav-links li a::after,
+.desktop-dropdown-btn::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:#C8A96A;
+    transform:translateX(-50%);
+    transition:width .35s ease;
+}
+
+/* Hover */
+.desktop-nav-links li a:hover,
+.desktop-dropdown-btn:hover{
+    color:#C8A96A;
+}
+
+.desktop-nav-links li a:hover::after,
+.desktop-dropdown-btn:hover::after{
+    width:100%;
+}
+
+/*==================================================
+                DROPDOWN BUTTON
+==================================================*/
+
+.desktop-dropdown-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    letter-spacing:.5px;
+
+    transition:.3s;
+}
+
+.desktop-dropdown-btn:hover{
+
+    color:#C8A96A;
+}
+
+.desktop-dropdown-icon{
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.desktop-dropdown:hover .desktop-dropdown-icon{
+
+    transform:rotate(180deg);
+}
+
+/*==================================================
+                DROPDOWN MENU
+==================================================*/
+
+.desktop-dropdown-menu{
+
+    position:absolute;
+
+    top:45px;
+
+    left:0;
+
+    min-width:220px;
+
+    background:#fff;
+
+    border-radius:10px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    padding:12px 0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:.3s;
+
+    z-index:100;
+}
+
+.desktop-dropdown:hover .desktop-dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+.desktop-dropdown-menu a{
+
+    display:block;
+
+    padding:12px 22px;
+
+    color:#333;
+
+    transition:.3s;
+}
+
+.desktop-dropdown-menu a:hover{
+
+    background:#faf6ef;
+
+    color:#C8A96A;
+}
+
+/*==================================================
+                SEARCH BAR
+==================================================*/
+
+.desktop-search-wrapper{
+
+    width:260px;
+}
+
+.desktop-search-form{
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#fff;
+
+    border:1px solid #dddddd;
+
+    border-radius:30px;
+
+    padding:0 16px;
+
+    transition:.3s;
+}
+
+.desktop-search-form:focus-within{
+
+    border-color:#C8A96A;
+
+    box-shadow:0 0 0 4px rgba(200,169,106,.12);
+}
+
+.desktop-search-icon{
+
+    color:#C8A96A;
+
+    font-size:18px;
+
+    margin-right:12px;
+}
+
+.desktop-search-form input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+    color:#333;
+}
+
+.desktop-search-form input::placeholder{
+
+    color:#999;
+}
+
+/*==================================================
+                    ICONS
+==================================================*/
+
+.desktop-icon{
+
+    position:relative;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:21px;
+
+    transition:.3s;
+}
+
+.desktop-icon:hover{
+
+    background:#faf6ef;
+
+    color:#C8A96A;
+}
+
+.desktop-badge{
+
+    position:absolute;
+
+    top:-3px;
+
+    right:-3px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#7B1E2B;
+
+    color:#fff;
+
+    font-size:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/*==================================================
+                ADMIN BUTTON
+==================================================*/
+
+.desktop-admin-btn{
+
+    height:42px;
+
+    padding:0 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    border-radius:25px;
+
+    background:#111;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.desktop-admin-btn:hover{
+
+    background:#C8A96A;
+}
+
+/*==================================================
+                STICKY EFFECT
+==================================================*/
+
+.desktop-navbar.scrolled{
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+/* Large Laptop */
+
+@media (max-width:1400px){
+
+    .desktop-navbar{
+        padding:0 40px;
+    }
+
+    .desktop-search-wrapper{
+        width:230px;
+    }
+
+    .desktop-nav-links{
+        gap:28px;
+    }
+
+}
+
+/* Laptop */
+
+@media (max-width:1200px){
+
+    .desktop-navbar{
+        padding:0 28px;
+    }
+
+    .desktop-logo h2{
+        font-size:36px;
+    }
+
+    .desktop-logo span{
+        letter-spacing:6px;
+    }
+
+    .desktop-search-wrapper{
+        width:190px;
+    }
+
+    .desktop-nav-links{
+        gap:22px;
+    }
+
+    .desktop-nav-links a,
+    .desktop-dropdown-btn{
+        font-size:13px;
+    }
+
+    .desktop-admin-btn{
+        padding:0 14px;
+        font-size:12px;
+    }
+
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+    .desktop-navbar{
+        display:none;
+    }
+
+}

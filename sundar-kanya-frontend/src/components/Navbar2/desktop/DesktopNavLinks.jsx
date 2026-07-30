@@ -1,26 +1,24 @@
 import { Link } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 
-function NavLinks() {
+function DesktopNavLinks() {
   return (
-    <ul className="desktop-nav-list">
+    <ul className="desktop-nav-links">
 
-      <li className="desktop-nav-item">
-        <Link to="/">HOME</Link>
+      <li>
+        <Link to="/">Home</Link>
       </li>
 
-      <li className="desktop-nav-item desktop-dropdown-item">
-
+      <li className="desktop-dropdown">
         <button
           type="button"
           className="desktop-dropdown-btn"
         >
-          JEWELLERY
+          Jewellery
           <FiChevronDown className="desktop-dropdown-icon" />
         </button>
 
         <div className="desktop-dropdown-menu">
-
           <Link to="/products/category/earrings">
             Earrings
           </Link>
@@ -32,26 +30,24 @@ function NavLinks() {
           <Link to="/products/category/bracelet">
             Bracelets
           </Link>
-
         </div>
-
       </li>
 
-      <li className="desktop-nav-item">
+      <li>
         <Link to="/products">
-          COLLECTIONS
+          Collections
         </Link>
       </li>
 
-      <li className="desktop-nav-item">
+      <li>
         <Link to="/about">
-          ABOUT
+          About
         </Link>
       </li>
 
-      <li className="desktop-nav-item">
+      <li>
         <Link to="/contact">
-          CONTACT
+          Contact
         </Link>
       </li>
 
@@ -59,4 +55,4 @@ function NavLinks() {
   );
 }
 
-export default NavLinks;
+export default DesktopNavLinks;

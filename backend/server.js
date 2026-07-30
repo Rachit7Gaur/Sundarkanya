@@ -21,6 +21,8 @@ import settingsRoutes from "./routes/SettingsRoutes.js";
 
 dotenv.config();
 const app = express();
+console.log("RAZORPAY_KEY_ID:", config.RAZORPAY_KEY_ID);
+console.log("RAZORPAY_KEY_SECRET:", config.RAZORPAY_KEY_SECRET ? "Loaded" : "Missing");
 
 app.use("/api/webhooks", webhookRoutes);
 

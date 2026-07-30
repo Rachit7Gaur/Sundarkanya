@@ -1,0 +1,877 @@
+/*==========================================
+            MOBILE NAVBAR
+==========================================*/
+
+.mobile-navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    background:#fff;
+
+    z-index:1000;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+/*==========================================
+            TOP ROW
+==========================================*/
+
+.mobile-navbar-top{
+
+    height:72px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 18px;
+}
+
+/*==========================================
+            MENU BUTTON
+==========================================*/
+
+.mobile-menu-btn{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    background:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:28px;
+
+    color:#111;
+
+    transition:.3s;
+}
+
+.mobile-menu-btn:hover{
+
+    color:#C8A96A;
+}
+
+/*==========================================
+            LOGO
+==========================================*/
+
+.mobile-logo{
+
+    flex:1;
+
+    text-align:center;
+
+    text-decoration:none;
+}
+
+.mobile-logo h2{
+
+    margin:0;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:30px;
+
+    color:#111;
+
+    line-height:1;
+}
+
+.mobile-logo span{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    color:#C8A96A;
+}
+
+/*==========================================
+            RIGHT ICONS
+==========================================*/
+
+.mobile-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+.mobile-icon{
+
+    position:relative;
+
+    font-size:23px;
+
+    color:#111;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.mobile-icon:hover{
+
+    color:#C8A96A;
+}
+
+.mobile-badge{
+
+    position:absolute;
+
+    top:-6px;
+
+    right:-7px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#7B1E2B;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:10px;
+
+    font-weight:600;
+}
+
+/*==========================================
+            DESKTOP
+==========================================*/
+
+@media(min-width:993px){
+
+    .mobile-navbar{
+
+        display:none;
+    }
+
+}
+
+/*==========================================
+            MOBILE SEARCH
+==========================================*/
+
+.mobile-search{
+
+    padding:12px 16px 16px;
+
+    background:#fff;
+}
+
+.mobile-search-form{
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#fff;
+
+    border:1px solid #e5e5e5;
+
+    border-radius:30px;
+
+    padding:0 16px;
+
+    transition:all .3s ease;
+}
+
+.mobile-search-form:focus-within{
+
+    border-color:#C8A96A;
+
+    box-shadow:0 0 0 4px rgba(200,169,106,.12);
+}
+
+.mobile-search-icon{
+
+    color:#C8A96A;
+
+    font-size:18px;
+
+    margin-right:12px;
+
+    flex-shrink:0;
+}
+
+.mobile-search-form input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:15px;
+
+    color:#222;
+
+    font-family:"Poppins",sans-serif;
+}
+
+.mobile-search-form input::placeholder{
+
+    color:#999;
+}
+
+/*==========================================
+            SEARCH DROPDOWN
+==========================================*/
+
+.mobile-search{
+    position:relative;
+}
+
+.mobile-search-dropdown{
+
+    position:absolute;
+
+    top:calc(100% + 8px);
+
+    left:16px;
+
+    right:16px;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+    overflow:hidden;
+
+    max-height:360px;
+
+    overflow-y:auto;
+
+    z-index:1001;
+
+    animation:dropdownFade .25s ease;
+}
+
+/*==========================================
+            SEARCH ITEM
+==========================================*/
+
+.mobile-search-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    transition:all .3s ease;
+}
+
+.mobile-search-item:hover{
+
+    background:#faf7f2;
+}
+
+.mobile-search-item img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    flex-shrink:0;
+}
+
+.mobile-search-info{
+
+    flex:1;
+}
+
+.mobile-search-info h4{
+
+    margin:0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#222;
+
+    line-height:1.4;
+}
+
+.mobile-search-info p{
+
+    margin-top:6px;
+
+    font-size:13px;
+
+    color:#C8A96A;
+
+    font-weight:600;
+}
+
+/*==========================================
+            NO RESULT
+==========================================*/
+
+.mobile-no-result{
+
+    padding:24px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:14px;
+}
+
+/*==========================================
+            ANIMATION
+==========================================*/
+
+@keyframes dropdownFade{
+
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/*==========================================
+            MOBILE OVERLAY
+==========================================*/
+
+.mobile-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(4px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:all .35s ease;
+
+    z-index:2000;
+}
+
+.mobile-overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+/*==========================================
+            MOBILE MENU
+==========================================*/
+
+.mobile-menu{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:320px;
+
+    max-width:85%;
+
+    height:100%;
+
+    background:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transform:translateX(-100%);
+
+    transition:transform .35s ease;
+
+    overflow-y:auto;
+
+    box-shadow:8px 0 25px rgba(0,0,0,.12);
+}
+
+.mobile-menu.show{
+
+    transform:translateX(0);
+}
+
+/*==========================================
+            MENU HEADER
+==========================================*/
+
+.mobile-menu-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px;
+
+    border-bottom:1px solid #ececec;
+}
+
+.mobile-menu-logo{
+
+    margin:0;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:30px;
+
+    color:#111;
+
+    line-height:1;
+}
+
+.mobile-menu-subtitle{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    color:#C8A96A;
+}
+
+/*==========================================
+            CLOSE BUTTON
+==========================================*/
+
+.mobile-close-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f5f5f5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:all .3s ease;
+}
+
+.mobile-close-btn:hover{
+
+    background:#C8A96A;
+
+    color:#fff;
+
+    transform:rotate(90deg);
+}
+
+/*==========================================
+            MOBILE MENU LINKS
+==========================================*/
+
+.mobile-menu-links{
+    display:flex;
+    flex-direction:column;
+}
+
+/* Main Links */
+
+.mobile-menu-links a,
+.mobile-dropdown-btn{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    background:#fff;
+
+    border:none;
+
+    border-bottom:1px solid #f2f2f2;
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+}
+
+/* Hover */
+
+.mobile-menu-links a:hover,
+.mobile-dropdown-btn:hover{
+
+    background:#faf7f2;
+
+    color:#C8A96A;
+
+    padding-left:32px;
+
+    border-left:4px solid #C8A96A;
+}
+
+/*==========================================
+            SUB MENU
+==========================================*/
+
+.mobile-submenu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#faf7f2;
+
+    animation:submenuOpen .3s ease;
+}
+
+.mobile-submenu a{
+
+    display:block;
+
+    padding:14px 42px;
+
+    text-decoration:none;
+
+    color:#555;
+
+    font-size:14px;
+
+    border-bottom:1px solid #ececec;
+
+    transition:all .3s ease;
+}
+
+.mobile-submenu a:hover{
+
+    background:#fff;
+
+    color:#C8A96A;
+
+    padding-left:50px;
+}
+
+/*==========================================
+            DROPDOWN ICON
+==========================================*/
+
+.dropdown-icon{
+
+    font-size:18px;
+
+    transition:transform .3s ease;
+}
+
+.dropdown-icon.rotate{
+
+    transform:rotate(180deg);
+}
+
+/*==========================================
+            SUBMENU ANIMATION
+==========================================*/
+
+@keyframes submenuOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/*==========================================
+            MOBILE MENU FOOTER
+==========================================*/
+
+.mobile-menu-footer{
+
+    margin-top:auto;
+
+    padding:24px;
+
+    border-top:1px solid #ececec;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    background:#fff;
+}
+
+/*==========================================
+            PROFILE / ADMIN
+==========================================*/
+
+.mobile-menu-account-link{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    transition:all .3s ease;
+}
+
+.mobile-menu-account-link:hover{
+
+    background:#faf7f2;
+
+    color:#C8A96A;
+
+    transform:translateX(6px);
+}
+
+/*==========================================
+            LOGIN BUTTON
+==========================================*/
+
+.mobile-login-btn{
+
+    width:100%;
+
+    height:50px;
+
+    border-radius:30px;
+
+    background:#111;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+}
+
+.mobile-login-btn:hover{
+
+    background:#C8A96A;
+
+    color:#fff;
+}
+
+/*==========================================
+            REGISTER BUTTON
+==========================================*/
+
+.mobile-register-btn{
+
+    width:100%;
+
+    height:50px;
+
+    border-radius:30px;
+
+    border:2px solid #C8A96A;
+
+    background:#fff;
+
+    color:#C8A96A;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:all .3s ease;
+}
+
+.mobile-register-btn:hover{
+
+    background:#C8A96A;
+
+    color:#fff;
+}
+
+/*==========================================
+            LOGOUT BUTTON
+==========================================*/
+
+.mobile-logout-btn{
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#7B1E2B;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+}
+
+.mobile-logout-btn:hover{
+
+    background:#C8A96A;
+}
+
+/*==========================================
+            SCROLLBAR
+==========================================*/
+
+.mobile-menu::-webkit-scrollbar{
+    width:6px;
+}
+
+.mobile-menu::-webkit-scrollbar-track{
+    background:#f5f5f5;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb{
+    background:#C8A96A;
+    border-radius:20px;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb:hover{
+    background:#b8944d;
+}
+.mobile-icon{
+
+    transition:all .3s ease;
+}
+
+.mobile-icon:hover{
+
+    color:#C8A96A;
+
+    transform:scale(1.1);
+}
+.mobile-menu{
+
+    will-change:transform;
+}
+.mobile-logo h2{
+
+    transition:.3s;
+}
+
+.mobile-logo:hover h2{
+
+    color:#C8A96A;
+}

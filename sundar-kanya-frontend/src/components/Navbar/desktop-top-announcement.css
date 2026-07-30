@@ -1,0 +1,47 @@
+/* ===== Announcement Bar ===== */
+
+.top-announcement{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #7B1E2B;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    z-index: 1100;
+    transition: .3s;
+}
+
+.hide-bar{
+    transform: translateY(-100%);
+}
+
+.announcement-track{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    white-space: nowrap;
+    animation: announcementScroll 30s linear infinite;
+}
+
+.announcement-track span{
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .4px;
+    flex-shrink: 0;
+}
+
+@keyframes announcementScroll{
+
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-50%);
+    }
+
+}

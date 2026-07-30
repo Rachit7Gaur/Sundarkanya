@@ -34,7 +34,7 @@
 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 102%;
+    background-size: cover;
 
     overflow: hidden;
 
@@ -318,84 +318,114 @@
 /* ==========================================
    RESPONSIVE
 ========================================== */
-
+/* ==========================
+   TABLET
+========================== */
 @media (max-width:992px){
 
-    .hero-slider{
-        height: 75vh;
-    }
-
-    .hero-content{
-        margin-left: 60px;
-        max-width: 500px;
-    }
-
-    .hero-content h1{
-        font-size: 56px;
-    }
+.hero-slider{
+    margin-top:75px;
+    height:70vh;
 }
+
+.hero-content{
+    margin-left:50px;
+    max-width:500px;
+}
+
+.hero-content h1{
+    font-size:48px;
+}
+
+.hero-arrow{
+    width:48px;
+    height:48px;
+}
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
 
 @media (max-width:768px){
 
-    .hero-slider{
-        height: 70vh;
-        justify-content: center;
-        text-align: center;
-        padding: 0 25px;
-    }
-
-    .hero-content{
-        margin-left: 0;
-    }
-
-    .hero-content h1{
-        font-size: 42px;
-    }
-
-    .hero-subtitle{
-        font-size: 12px;
-    }
-
-    .hero-btn{
-        padding: 16px 28px;
-        font-size: 12px;
-    }
-
-    .hero-arrow{
-        width: 46px;
-        height: 46px;
-        font-size: 22px;
-    }
-
-    .hero-arrow.left{
-        left: 15px;
-    }
-
-    .hero-arrow.right{
-        right: 15px;
-    }
+.hero-slider{
+    margin-top:75px;
+    height:60vh;
+    justify-content:center;
+    text-align:center;
+    padding:0 20px;
 }
+
+.hero-content{
+    margin:0;
+    max-width:100%;
+}
+
+.hero-subtitle{
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.hero-content h1{
+    font-size:34px;
+    line-height:1.2;
+}
+
+.hero-btn{
+    padding:14px 24px;
+    font-size:12px;
+}
+
+.hero-arrow{
+    width:42px;
+    height:42px;
+    font-size:20px;
+}
+
+.hero-arrow.left{
+    left:10px;
+}
+
+.hero-arrow.right{
+    right:10px;
+}
+
+.hero-dots{
+    bottom:15px;
+}
+
+}
+
+
+/* ==========================
+   SMALL MOBILE
+========================== */
 
 @media (max-width:480px){
 
-    .hero-slider{
-        height: 65vh;
-    }
+.hero-slider{
+    height:55vh;
+}
 
-    .hero-content h1{
-        font-size: 34px;
-    }
+.hero-content h1{
+    font-size:28px;
+}
 
-    .hero-btn{
-        padding: 14px 22px;
-    }
+.hero-subtitle{
+    font-size:11px;
+}
 
-    .hero-dot{
-        width: 10px;
-        height: 10px;
-    }
+.hero-btn{
+    width:100%;
+    max-width:250px;
+}
 
-    .hero-dot.active{
-        width: 26px;
-    }
+.hero-arrow{
+    width:36px;
+    height:36px;
+    font-size:18px;
+}
+
 }

@@ -1,7 +1,6 @@
 import { useState , useEffect , useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import "./Navbar.css";
 import { searchProducts } from "../../services/productService";
 
 function SearchBar() {
@@ -111,12 +110,13 @@ const handleKeyDown = (e) => {
       <FiSearch className="search-icon" />
 
       <input
-        type="text"
-        placeholder="Search jewellery..."
-        value={search}
-        onChange={(e) => handleSearchChange(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
+  type="text"
+  placeholder="Search jewellery..."
+  value={search}
+  spellCheck={false}
+  onChange={(e)=>handleSearchChange(e.target.value)}
+  onKeyDown={handleKeyDown}
+/>
 
     
     </form>

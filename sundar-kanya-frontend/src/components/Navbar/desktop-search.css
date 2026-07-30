@@ -1,0 +1,209 @@
+/*==========================================
+        WRAPPER
+==========================================*/
+
+.desktop-search-wrapper{
+
+    position:relative;
+
+    width:260px;
+
+}
+
+/*==========================================
+        SEARCH FORM
+==========================================*/
+
+.desktop-search-form{
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    height:48px;
+
+    padding:0 18px;
+
+    background:#fff;
+
+    border:1px solid #E8DDD0;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+}
+
+.desktop-search-form:hover{
+
+    border-color:#C8A96A;
+
+}
+
+.desktop-search-form:focus-within{
+
+    border-color:#C8A96A;
+
+    box-shadow:0 0 0 4px rgba(200,169,106,.12);
+
+}
+
+/*==========================================
+        ICON
+==========================================*/
+
+.desktop-search-icon{
+
+    color:#C8A96A;
+
+    font-size:18px;
+
+    margin-right:12px;
+
+}
+
+/*==========================================
+        INPUT
+==========================================*/
+
+.desktop-search-form input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+    font-family:"Poppins",sans-serif;
+
+    color:#222;
+
+}
+
+.desktop-search-form input::placeholder{
+
+    color:#999;
+
+}
+
+/*==========================================
+        DROPDOWN
+==========================================*/
+
+.desktop-search-dropdown{
+
+    position:absolute;
+
+    top:56px;
+
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+
+    border:1px solid #ECE3D6;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+    z-index:999;
+
+}
+
+/*==========================================
+        ITEM
+==========================================*/
+
+.desktop-search-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.desktop-search-item:hover,
+
+.desktop-search-item.active{
+
+    background:#FAF7F2;
+
+}
+
+/*==========================================
+        IMAGE
+==========================================*/
+
+.desktop-search-item img{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+/*==========================================
+        INFO
+==========================================*/
+
+.desktop-search-info{
+
+    flex:1;
+
+}
+
+.desktop-search-info h4{
+
+    margin:0;
+
+    font-size:14px;
+
+    color:#222;
+
+}
+
+.desktop-search-info p{
+
+    margin-top:6px;
+
+    color:#B08D57;
+
+    font-weight:600;
+
+}
+
+/*==========================================
+        NO RESULT
+==========================================*/
+
+.desktop-no-result{
+
+    padding:18px;
+
+    text-align:center;
+
+    color:#777;
+
+}

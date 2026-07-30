@@ -2,39 +2,26 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiX, FiChevronDown } from "react-icons/fi";
 
-import "./mobile-menu.css";
-
-
 function MobileMenu({
-
-    isOpen,
-
-    isLoggedIn,
-
-    user,
-
-    cartCount,
-
-    wishlistCount,
-
-    logout,
-
-    closeMenu,
-
+  isOpen,
+  closeMenu,
+  user,
+  logout,
 }) {
 
   const [openJewellery, setOpenJewellery] = useState(false);
+
   return (
+
     <div
-    className={`mobile-overlay ${
-        isOpen ? "show-overlay" : ""
-    }`}
-    onClick={closeMenu}
->
-    <aside
-    className={`mobile-menu ${isOpen ? "show-menu" : ""}`}
-    onClick={(e) => e.stopPropagation()}
->
+      className={`mobile-overlay ${isOpen ? "show" : ""}`}
+      onClick={closeMenu}
+    >
+
+      <aside
+        className={`mobile-menu ${isOpen ? "show" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* Header */}
 
@@ -70,44 +57,48 @@ function MobileMenu({
           </Link>
 
           <button
-  className="mobile-dropdown-btn"
-  onClick={() => setOpenJewellery(!openJewellery)}
->
-  <span>Jewellery</span>
+            className="mobile-dropdown-btn"
+            onClick={() =>
+              setOpenJewellery(!openJewellery)
+            }
+          >
+            <span>Jewellery</span>
 
-  <FiChevronDown
-    className={`dropdown-arrow ${
-      openJewellery ? "rotate" : ""
-    }`}
-  />
-</button>
+            <FiChevronDown
+              className={`dropdown-icon ${
+                openJewellery ? "rotate" : ""
+              }`}
+            />
+          </button>
 
-{openJewellery && (
-  <div className="mobile-submenu">
+          {openJewellery && (
 
-    <Link
-      to="/products/category/earrings"
-      onClick={closeMenu}
-    >
-      Earrings
-    </Link>
+            <div className="mobile-submenu">
 
-    <Link
-      to="/products/category/pendant"
-      onClick={closeMenu}
-    >
-      Pendants
-    </Link>
+              <Link
+                to="/products/category/earrings"
+                onClick={closeMenu}
+              >
+                Earrings
+              </Link>
 
-    <Link
-      to="/products/category/bracelet"
-      onClick={closeMenu}
-    >
-      Bracelets
-    </Link>
+              <Link
+                to="/products/category/pendant"
+                onClick={closeMenu}
+              >
+                Pendants
+              </Link>
 
-  </div>
-)}
+              <Link
+                to="/products/category/bracelet"
+                onClick={closeMenu}
+              >
+                Bracelets
+              </Link>
+
+            </div>
+
+          )}
 
           <Link
             to="/products"
@@ -132,26 +123,31 @@ function MobileMenu({
 
         </nav>
 
-        {/* Bottom */}
+        {/* Footer */}
 
         <div className="mobile-menu-footer">
 
-          {isLoggedIn ? (
+          {user ? (
+
             <>
               <Link
-                to="/profile"
-                onClick={closeMenu}
+                  to="/profile"
+                  className="mobile-menu-account-link"
+                  onClick={closeMenu}
               >
-                My Profile
+                  My Profile
               </Link>
 
-              {user?.role === "admin" && (
+              {user.role === "admin" && (
+
                 <Link
-                  to="/admin"
-                  onClick={closeMenu}
+                    to="/admin"
+                    className="mobile-menu-account-link"
+                    onClick={closeMenu}
                 >
-                  Admin Panel
+                    👑 Admin Panel
                 </Link>
+
               )}
 
               <button
@@ -163,8 +159,11 @@ function MobileMenu({
               >
                 Logout
               </button>
+
             </>
+
           ) : (
+
             <>
               <Link
                 to="/login"
@@ -182,12 +181,15 @@ function MobileMenu({
                 Register
               </Link>
             </>
+
           )}
 
         </div>
 
       </aside>
+
     </div>
+
   );
 }
 

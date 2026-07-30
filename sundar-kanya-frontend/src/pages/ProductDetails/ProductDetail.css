@@ -2,20 +2,9 @@
 PRODUCT DETAILS
 ==================================================*/
 .product-details-page{
-    margin-top:170px;
+    margin-top:50px;
     min-height:100vh;
     background:#faf7f2;
-}
-@media (max-width:992px){
-    .product-details-page{
-        margin-top:128px;
-    }
-}
-
-@media (max-width:768px){
-    .product-details-page{
-        margin-top:113px;
-    }
 }
 .pd-page{
 
@@ -719,88 +708,85 @@ REVIEW FORM
 RELATED PRODUCTS
 ==================================================*/
 
-/* ==========================
-   RELATED PRODUCTS
-========================== */
-
 .pd-related{
-    margin-top:100px;
-    padding:70px 0;
+
+    margin-top:110px;
+
+    padding-top:80px;
+
+    border-top:1px solid #ececec;
+
 }
 
 .pd-related-heading{
+
     text-align:center;
+
     margin-bottom:50px;
+
 }
 
 .pd-related-heading span{
+
+    display:block;
+
     color:#B08D57;
-    letter-spacing:3px;
+
     font-size:13px;
-    font-weight:600;
+
+    letter-spacing:4px;
+
     text-transform:uppercase;
+
+    margin-bottom:12px;
+
 }
 
 .pd-related-heading h2{
-    margin:12px 0;
-    font-family:"Cormorant Garamond", serif;
-    font-size:42px;
+
+    font-size:40px;
+
     color:#222;
+
+    margin-bottom:15px;
+
 }
 
 .pd-related-heading p{
-    max-width:600px;
-    margin:auto;
-    color:#666;
-    line-height:1.8;
-}
 
-/* Grid */
+    color:#777;
+
+    max-width:600px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
 
 .pd-related-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,320px));
-    justify-content:center;
-    gap:30px;
-}
 
-/* Empty */
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:35px;
+
+}
 
 .pd-related-empty{
-    grid-column:1/-1;
+
+    width:100%;
+
     text-align:center;
-    color:#777;
-    padding:50px 20px;
-    font-size:18px;
-}
 
-/* Tablet */
+    padding:70px;
 
-@media(max-width:768px){
+    color:#888;
 
-.pd-related{
-    margin-top:70px;
-    padding:50px 0;
-}
+    background:#fafafa;
 
-.pd-related-heading h2{
-    font-size:34px;
-}
-
-}
-
-/* Mobile */
-
-@media(max-width:480px){
-
-.pd-related-heading h2{
-    font-size:28px;
-}
-
-.pd-related-grid{
-    grid-template-columns:1fr;
-    justify-items:center;
-}
+    border-radius:18px;
 
 }
 
