@@ -124,26 +124,45 @@
    RESPONSIVE
 ========================================== */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .testimonials-section{
-    padding:80px 20px;
+    padding:60px 18px;
 }
 
 .section-heading{
-    margin-bottom:45px;
+    margin-bottom:35px;
 }
 
 .section-heading h2{
-    font-size:38px;
+    font-size:32px;
+    line-height:1.2;
 }
 
 .section-heading p{
     font-size:15px;
+    line-height:1.8;
+}
+
+/* Slider */
+.testimonial-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:18px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    padding-bottom:8px;
+}
+
+.testimonial-grid::-webkit-scrollbar{
+    display:none;
 }
 
 .testimonial-card{
-    padding:28px;
+    min-width:85%;
+    flex-shrink:0;
+    scroll-snap-align:center;
+    padding:25px;
 }
 
 .testimonial-top{
@@ -151,12 +170,24 @@
     text-align:center;
 }
 
+.testimonial-avatar{
+    width:70px;
+    height:70px;
+}
+
 .testimonial-stars{
     justify-content:center;
 }
 
+.testimonial-review{
+    text-align:center;
+    font-size:15px;
+    line-height:1.8;
+}
+
 .testimonial-quote{
     text-align:center;
+    font-size:55px;
 }
 
 }
