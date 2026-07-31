@@ -166,19 +166,11 @@ function MobileMenu({
 
             <>
               <Link
-                to="/login"
+                to="/mobile-login"
                 className="mobile-login-btn"
                 onClick={closeMenu}
               >
-                Login
-              </Link>
-
-              <Link
-                to="/register"
-                className="mobile-register-btn"
-                onClick={closeMenu}
-              >
-                Register
+                Login / Sign Up
               </Link>
             </>
 

@@ -9,17 +9,39 @@ const userSchema = new mongoose.Schema(
     },
 
     email: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-      lowercase: true,
-    },
+  type: String,
+  unique: true,
+  sparse: true,
+  trim: true,
+  lowercase: true,
+},
 
-    password: {
-      type: String,
-      required: true,
-    },
+password: {
+  type: String,
+  default: null,
+},
+
+phone: {
+  type: String,
+  default: "",
+  unique: true,
+  sparse: true,
+},
+
+otp: {
+  type: String,
+  default: null,
+},
+
+otpExpire: {
+  type: Date,
+  default: null,
+},
+
+otpVerified: {
+  type: Boolean,
+  default: false,
+},
 
     role: {
       type: String,
@@ -33,10 +55,6 @@ const userSchema = new mongoose.Schema(
     },
 
     // Profile
-    phone: {
-      type: String,
-      default: "",
-    },
     gender: {
       type: String,
       enum: ["Male", "Female", "Other"],

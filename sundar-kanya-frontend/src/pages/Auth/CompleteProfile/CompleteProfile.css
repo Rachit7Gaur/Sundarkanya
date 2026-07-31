@@ -1,0 +1,375 @@
+/* ==========================================
+   COMPLETE PROFILE
+========================================== */
+
+.complete-profile-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 120px 20px 60px;
+
+  background: #faf7f2;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.complete-profile-card {
+  width: 100%;
+  max-width: 430px;
+
+  background: #fff;
+
+  padding: 45px 40px;
+
+  border-radius: 22px;
+
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+
+  animation: completeProfileFade 0.45s ease;
+}
+
+
+/* ==========================================
+   BRAND
+========================================== */
+
+.complete-profile-brand {
+  margin-bottom: 35px;
+}
+
+.complete-profile-brand h1 {
+  margin: 0 0 6px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  color: #1f1f1f;
+}
+
+.complete-profile-brand h1 span {
+  color: #b08d57;
+}
+
+.complete-profile-brand p {
+  margin: 0;
+
+  color: #888;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.complete-profile-card h2 {
+  margin: 0 0 12px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 32px;
+
+  font-weight: 600;
+
+  color: #1f1f1f;
+}
+
+.complete-profile-description {
+  margin: 0 auto 28px;
+
+  max-width: 340px;
+
+  color: #777;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   VERIFIED PHONE
+========================================== */
+
+.profile-phone-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e7dfd3;
+
+  border-radius: 10px;
+
+  background: #faf7f2;
+
+  text-align: left;
+}
+
+.profile-phone-box span {
+  color: #777;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 12px;
+
+  flex: 1;
+}
+
+.profile-phone-box strong {
+  color: #7b1e2b;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.profile-phone-box small {
+  color: #3c8c5a;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.complete-profile-card form {
+  text-align: left;
+}
+
+.profile-field {
+  margin-bottom: 20px;
+}
+
+.profile-field label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #333;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.profile-field input {
+  width: 100%;
+
+  height: 54px;
+
+  padding: 0 15px;
+
+  border: 1px solid #ddd3c5;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #fff;
+
+  color: #222;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 15px;
+
+  transition: 0.3s ease;
+
+  box-sizing: border-box;
+}
+
+.profile-field input::placeholder {
+  color: #aaa;
+}
+
+.profile-field input:focus {
+  border-color: #b08d57;
+
+  box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.1);
+}
+
+
+/* ==========================================
+   CONTINUE BUTTON
+========================================== */
+
+.complete-profile-btn {
+  width: 100%;
+
+  height: 54px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #7b1e2b;
+
+  color: #fff;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.complete-profile-btn:hover {
+  background: #60151f;
+
+  transform: translateY(-2px);
+}
+
+.complete-profile-btn:active {
+  transform: translateY(0);
+}
+
+.complete-profile-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes completeProfileFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 576px) {
+
+  .complete-profile-page {
+    min-height: 100vh;
+
+    align-items: flex-start;
+
+    padding: 100px 16px 40px;
+  }
+
+  .complete-profile-card {
+    margin-top: 20px;
+
+    padding: 35px 22px;
+
+    border-radius: 18px;
+  }
+
+  .complete-profile-brand {
+    margin-bottom: 28px;
+  }
+
+  .complete-profile-brand h1 {
+    font-size: 36px;
+  }
+
+  .complete-profile-card h2 {
+    font-size: 28px;
+  }
+
+  .complete-profile-description {
+    font-size: 14px;
+
+    margin-bottom: 24px;
+  }
+
+  .profile-phone-box {
+    flex-wrap: wrap;
+  }
+
+  .profile-phone-box span {
+    width: 100%;
+
+    flex: auto;
+  }
+
+  .profile-phone-box strong {
+    font-size: 14px;
+  }
+
+}
+
+
+/* ==========================================
+   VERY SMALL DEVICES
+========================================== */
+
+@media (max-width: 380px) {
+
+  .complete-profile-page {
+    padding-left: 12px;
+
+    padding-right: 12px;
+  }
+
+  .complete-profile-card {
+    padding: 30px 18px;
+  }
+
+  .complete-profile-brand h1 {
+    font-size: 33px;
+  }
+
+  .complete-profile-card h2 {
+    font-size: 26px;
+  }
+
+}

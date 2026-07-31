@@ -15,3 +15,11 @@ export const getProfile= (data)=>{
 export const updateSettings = async (data) => {
   return api.put("/auth/settings", data);
 };
+
+export const sendOTP = (data) => {
+  return api.post("/auth/send-otp", data);
+};
+
+export const verifyOTP = (data) => {
+  return api.post("/auth/verify-otp", data);
+};

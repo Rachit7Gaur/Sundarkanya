@@ -1,0 +1,266 @@
+/* =========================
+   MOBILE LOGIN PAGE
+========================= */
+
+.mobile-login-page {
+  min-height: 100vh;
+  padding: 35px 16px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.mobile-login-card {
+  width: 100%;
+  max-width: 390px;
+  padding: 30px 26px;
+  background: #fff;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.mobile-login-brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.mobile-login-brand h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #172a30;
+}
+
+.mobile-login-brand h1 span {
+  color: #a88955;
+}
+
+.mobile-login-brand p {
+  margin: 5px 0 0;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.mobile-login-card h2 {
+  text-align: center;
+  margin: 0 0 10px;
+  color: #172a30;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.mobile-login-description {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 auto 28px;
+  max-width: 280px;
+}
+
+/* =========================
+   LABEL
+========================= */
+
+.mobile-login-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================
+   PHONE INPUT
+========================= */
+
+.mobile-phone-input {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.mobile-phone-input span {
+  padding: 0 15px;
+  color: #333;
+  font-size: 15px;
+  border-right: 1px solid #ddd;
+}
+
+.mobile-phone-input input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #222;
+}
+
+.mobile-phone-input input::placeholder {
+  color: #999;
+}
+
+/* =========================
+   OTP INPUT
+========================= */
+
+.mobile-otp-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+
+  outline: none;
+  background: #fff;
+
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #222;
+
+  box-sizing: border-box;
+}
+
+.mobile-otp-input::placeholder {
+  color: #999;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.mobile-otp-input:focus {
+  border-color: #172a30;
+}
+
+/* =========================
+   BLACK / NAVY BUTTON
+========================= */
+
+.mobile-login-btn {
+  width: 100%;
+  height: 55px;
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #172a30;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.mobile-login-btn:hover {
+  background: #0f2025;
+}
+
+.mobile-login-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================
+   VERIFIED NUMBER
+========================= */
+
+.mobile-number-display {
+  display: block;
+  text-align: center;
+  margin: 12px 0 25px;
+
+  color: #a88955;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =========================
+   CHANGE NUMBER
+========================= */
+
+.change-number-btn {
+  display: block;
+  margin: 16px auto 0;
+
+  border: none;
+  background: transparent;
+
+  color: #172a30;
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* =========================
+   OR DIVIDER
+========================= */
+
+.mobile-login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 20px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.mobile-login-divider::before,
+.mobile-login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.mobile-login-divider span {
+  color: #999;
+}
+
+/* =========================
+   EMAIL LOGIN
+========================= */
+
+.email-login-btn {
+  width: 100%;
+  height: 50px;
+
+  background: #fff;
+  border: 1px solid #172a30;
+  border-radius: 8px;
+
+  color: #172a30;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.email-login-btn:hover {
+  background: #f7f7f7;
+}

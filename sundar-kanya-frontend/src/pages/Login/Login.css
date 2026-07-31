@@ -199,3 +199,26 @@
     }
 
 }
+
+.sk-mobile-login-btn {
+  width: 100%;
+  padding: 14px 20px;
+  margin-top: 20px;
+
+  border: 1px solid #222;
+  border-radius: 8px;
+
+  background: #fff;
+  color: #222;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sk-mobile-login-btn:hover {
+  background: #222;
+  color: #fff;
+}

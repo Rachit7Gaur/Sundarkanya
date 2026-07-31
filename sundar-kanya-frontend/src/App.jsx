@@ -21,6 +21,9 @@ import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import AdminRoute from "./routes/AdminRoute";
 
+import MobileLogin from "./pages/Auth/MobileLogin/MobileLogin";
+import CompleteProfile from "./pages/Auth/CompleteProfile/CompleteProfile";
+
 // Admin Layout
 import AdminLayout from "./admin/layout/AdminLayout";
 
@@ -76,6 +79,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/mobile-login" element={<MobileLogin />} />
+        <Route path="/complete-profile" element={<CompleteProfile />}/>
 
         <Route
           path="/products/category/:category"

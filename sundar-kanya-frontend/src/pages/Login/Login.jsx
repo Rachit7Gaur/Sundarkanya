@@ -60,11 +60,24 @@ function Login() {
           jewellery.
         </p>
 
-        {error && (
+          {error && (
           <div className="sk-error-box">
             {error}
           </div>
         )}
+
+        <button
+          type="button"
+          className="sk-mobile-login-btn"
+          onClick={() => navigate("/mobile-login")}
+        >
+          Continue with Mobile Number
+        </button>
+
+        <div className="sk-divider">
+          <span>OR</span>
+        </div>
+      
 
         <form onSubmit={handleSubmit}>
 
@@ -120,10 +133,6 @@ function Login() {
           </button>
 
         </form>
-
-        <div className="sk-divider">
-          <span>OR</span>
-        </div>
 
         <div className="sk-login-links">
 

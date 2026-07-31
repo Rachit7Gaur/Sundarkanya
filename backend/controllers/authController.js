@@ -5,6 +5,11 @@ import config from "../config/config.js";
 import crypto from "crypto";
 import sendEmail from "../config/sendEmail.js";
 
+
+const generateOTP = () => {
+  return crypto.randomInt(100000, 1000000).toString();
+};
+
 // Register new user
 export const registerUser = async (req, res) => {
   try {
@@ -447,5 +452,155 @@ export const resetPassword = async (req, res) => {
       error: error.message,
     });
 
+  }
+};
+
+export const sendOTP = async (req, res) => {
+  try {
+    let { phone } = req.body;
+
+    if (!phone) {
+      return res.status(400).json({
+        message: "Mobile number is required",
+      });
+    }
+
+    phone = phone.replace(/\D/g, "");
+
+    // Indian 10-digit number
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      return res.status(400).json({
+        message: "Please enter a valid Indian mobile number",
+      });
+    }
+
+    const otp = generateOTP();
+
+    const hashedOTP = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    let user = await User.findOne({ phone });
+
+    if (!user) {
+      // Temporary user.
+      // Account details will be completed after OTP verification.
+      user = await User.create({
+        name: "Guest User",
+        email: `phone_${phone}@sundarkanya.local`,
+        phone,
+        password: null,
+        role: "customer",
+        otp: hashedOTP,
+        otpExpire: new Date(Date.now() + 5 * 60 * 1000),
+        otpVerified: false,
+      });
+    } else {
+      user.otp = hashedOTP;
+      user.otpExpire = new Date(
+        Date.now() + 5 * 60 * 1000
+      );
+      user.otpVerified = false;
+
+      await user.save();
+    }
+
+    // DEVELOPMENT ONLY
+    console.log(`OTP for ${phone}: ${otp}`);
+
+    res.json({
+      message: "OTP sent successfully",
+    });
+
+  } catch (error) {
+    console.error("SEND OTP ERROR:", error);
+
+    res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
+
+export const verifyOTP = async (req, res) => {
+  try {
+    let { phone, otp } = req.body;
+
+    if (!phone || !otp) {
+      return res.status(400).json({
+        message: "Mobile number and OTP are required",
+      });
+    }
+
+    phone = phone.replace(/\D/g, "");
+
+    const user = await User.findOne({ phone });
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    if (!user.otp || !user.otpExpire) {
+      return res.status(400).json({
+        message: "OTP not requested",
+      });
+    }
+
+    if (user.otpExpire < new Date()) {
+      return res.status(400).json({
+        message: "OTP has expired",
+      });
+    }
+
+    const hashedOTP = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    if (hashedOTP !== user.otp) {
+      return res.status(400).json({
+        message: "Invalid OTP",
+      });
+    }
+
+    user.otp = null;
+    user.otpExpire = null;
+    user.otpVerified = true;
+
+    await user.save();
+
+    const token = jwt.sign(
+      {
+        id: user._id,
+        role: user.role,
+      },
+      config.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      }
+    );
+
+    res.json({
+      message: "OTP verified successfully",
+      token,
+      isNewUser:
+        user.name === "Guest User",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+      },
+    });
+
+  } catch (error) {
+    console.error("VERIFY OTP ERROR:", error);
+
+    res.status(500).json({
+      message: "Server error",
+    });
   }
 };
